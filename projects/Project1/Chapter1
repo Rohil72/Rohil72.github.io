@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 1: Lex Luther</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<h1>Chapter 1: Lex Luther</h1>
+
+<p>We are forming the language on the BASIC Dialect. Similar to the Syntax scope of the original article we will also do the same but maybe add a few things like some data structures.</p>
+
+<p>Our language will allow a variety of the basic operations that you'd expect from a programming language. In particular, it will support:</p>
+<ul>
+  <li>Numerical variables</li>
+  <li>Basic arithmetic</li>
+  <li>If statements</li>
+  <li>While loops</li>
+  <li>Print text and numbers</li>
+  <li>Input numbers</li>
+  <li>Labels and goto</li>
+  <li>Comments</li>
+</ul>
+
+<p>From <a href="https://austinhenley.com/blog/teenytinycompiler1.html">austinhenley.com</a></p>
+
+<p>In this chapter we will make a Lexer. It performs the role of taking the input and breaking it into words and identifying if it’s a keyword, identifier, space, or operator.</p>
+
+<img src="/assets/img/f8f323b9-9fd2-4dfa-8a00-8e6eb3b22936.png" alt="Code Screenshot" style="max-width: 100%; border: 1px solid #ccc;">
+
+<h2>Reading the Next Character</h2>
+
+<pre><code class="language-java">
+public void nextChar() {
+    if(index >= source.length()) {
+        currChar = '\0';
+    } else {
+        currChar = source.charAt(index);
+    }
+}
+</code></pre>
+
+<h2>Peeking Ahead</h2>
+<pre><code class="language-java">
+char peek() {
+    if(index >= source.length())
+        return '\0';
+
+    return source.charAt(index);
+}
+</code></pre>
+
+<p>This lets us see the next character without consuming it.</p>
+
+<h2>Running the Lexer</h2>
+<pre><code class="language-java">
+public static void main(String[] args) {
+    Lexer lexer = new Lexer("LET this Num123;");
+    while(lexer.currChar != '\0') {
+        System.out.println("The character = " + lexer.currChar);
+        lexer.nextChar();
+    }
+}
+</code></pre>
+
+<p>Our class works. Now we need to make some system for classifying the tokens.</p>
+
+<h2>Token Type Enum</h2>
+<pre><code class="language-java">
+enum TokenType {
+    EOF, WHITESPACE, STRING,
+    IDENT, NUMBER,
+    PRINT, IF, ELSE, END, WHILE,
+    EQUALS, PLUS, MINUS
+}
+</code></pre>
+
+<h2>Whitespace & Comments</h2>
+<p>In Java, unlike Python, we have to explicitly handle <code>\n</code> as part of newline detection. Also, we add <code>\n</code> at the end of the input to simplify EOF detection.</p>
+
+<h2>Token Extraction Logic</h2>
+<pre><code class="language-java">
+if(currChar == '\n' || currChar == ' ' || currChar == '\r' || currChar == '\t') {
+    System.out.println("Whitespace found: " + currChar);
+}
+</code></pre>
+
+<h2>Token Generation</h2>
+<pre><code class="language-java">
+token = new Token(source.substring(start, index), TokenType.STRING);
+</code></pre>
+
+<h2>Final Enum Matching Example</h2>
+<pre><code class="language-java">
+public static TokenType checkIfKeyword(String tokenText) {
+    for (TokenType kind : TokenType.values()) {
+        if (kind.name().equals(tokenText))
+            return kind;
+    }
+    return null;
+}
+</code></pre>
+
+<h2>Conclusion</h2>
+<p>We’ve built a basic Lexer that parses through input, detects types of characters, and maps them to token types using Enums.</p>
+
+<p><a href="/projects/project1.html">← Back to Project</a></p>
+
+</body>
+</html>
