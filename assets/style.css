@@ -1,0 +1,22 @@
+body {
+  font-family: Georgia, serif;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+  line-height: 1.6;
+  color: #222;
+  background: #fff;
+}
+h1, h2 {
+  font-weight: normal;
+}
+ul {
+  padding-left: 1.2em;
+}
+a {
+  color: #005bbb;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
