@@ -71,25 +71,22 @@ Here I choose a simple solution to just append the string and add an \n at the e
 <img src= "/assets/project1/chp1/5.png" alt="" style="max-width: 100%; border: : 1px solid #ccc;">
 
 
-<h2>Token Extraction Logic</h2>
+<h2>Some more functions and tiny optimizations</h2>
 
+<img src= "/assets/project1/chp1/6.png" alt="" style="max-width: 100%; border: : 1px solid #ccc;">
 
 
 <h2>Token Generation</h2>
-<pre><code class="language-java">
-token = new Token(source.substring(start, index), TokenType.STRING);
-</code></pre>
 
+<img src= "/assets/project1/chp1/8.png" alt="" style="max-width: 100%; border: : 1px solid #ccc;">
+
+
+<p>Now we are nearly ending, just accommodating for Digits and a few more. Again it is nearly the same as the python 
+counterPart. Again we see some Syntactic Hooping we have to get through for translating the code from python to java</p>
 <h2>Final Enum Matching Example</h2>
-<pre><code class="language-java">
-public static TokenType checkIfKeyword(String tokenText) {
-    for (TokenType kind : TokenType.values()) {
-        if (kind.name().equals(tokenText))
-            return kind;
-    }
-    return null;
-}
-</code></pre>
+
+<img src= "/assets/project1/chp1/8.png" alt="" style="max-width: 100%; border: : 1px solid #ccc;">
+
 
 <h2>Conclusion</h2>
 <p>We’ve built a basic Lexer that parses through input, detects types of characters, and maps them to token types using Enums.</p>
