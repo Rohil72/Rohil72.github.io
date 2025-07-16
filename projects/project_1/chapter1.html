@@ -27,9 +27,9 @@
 
 <p>In this chapter we will make a Lexer. It performs the role of taking the input and breaking it into words and identifying if it’s a keyword, identifier, space, or operator.</p>
 
-<img src="/assets/project1/chp1/1.png" alt="" style="max-width: 100%; border: 1px solid #ccc;">
-
 <h2>Reading the Next Character</h2>
+
+<img src="/assets/project1/chp1/1.png" alt="" style="max-width: 100%; border: 1px solid #ccc;">
 
 
 <h2>Peeking Ahead</h2>
@@ -46,24 +46,34 @@
 <p>Our class works. Now we need to make some system for classifying the tokens.</p>
 
 <h2>Token Type Enum</h2>
-<pre><code class="language-java">
-enum TokenType {
-    EOF, WHITESPACE, STRING,
-    IDENT, NUMBER,
-    PRINT, IF, ELSE, END, WHILE,
-    EQUALS, PLUS, MINUS
-}
-</code></pre>
+
+<p>Our classes work. Now we need to  make some system for classifying the tokens. This feels repetitive in nature and while production level codes usually quite a bit different.
+
+The multiplication written for Java is quite unique as it goes down as deep as transistor level compatibility. i.e. the function is written with intel's codec of multiplication. This all isn’t even done at code level but in the JIT. </p>
+
+<p> Another example of Optimization is seen in python where if you multiply using NumPy it Is faster than your standard A*B. This is due to the fact that NumPy is written in C at low level. I want to eventually bring this all down to the fact that even if we are just re-labelling things as 'the character (+) is to be interpreted at plus' it is still  important as the power of optimization here in many practical applications where you would rather use custom language. </p>
+
+<p> Now for the TokeType class we are using Enums, which are a special type of class. They are very compatible and optimize Switch Case.</p>
+
+<img src= "/assets/project1/chp1/4.png" alt="" style="max-width: 100%; border: : 1px solid #ccc;">
+
 
 <h2>Whitespace & Comments</h2>
+
 <p>In Java, unlike Python, we have to explicitly handle <code>\n</code> as part of newline detection. Also, we add <code>\n</code> at the end of the input to simplify EOF detection.</p>
 
+<p>As we keep moving, now onto a quick skip comment function, While I don’t understand fully but I imagine that if in Python as everything even classes run as files when they are files each line ends with \n giving us the \n we see in Henry's code. Java isnt like that it at console level at least relies on length.
+
+Now this is where we diverge, I don’t know what full proof methods we can use but I'd imagine something like length matching is our best bet or keeping end marks like java's semi-colon but I am certain that will snow ball into a lot of differences needed to be addressed as that would be an explicit solution(A change expected from User end) than an implicit for Production.
+
+Here I choose a simple solution to just append the string and add an \n at the end.</p>
+
+<img src= "/assets/project1/chp1/5.png" alt="" style="max-width: 100%; border: : 1px solid #ccc;">
+
+
 <h2>Token Extraction Logic</h2>
-<pre><code class="language-java">
-if(currChar == '\n' || currChar == ' ' || currChar == '\r' || currChar == '\t') {
-    System.out.println("Whitespace found: " + currChar);
-}
-</code></pre>
+
+
 
 <h2>Token Generation</h2>
 <pre><code class="language-java">
