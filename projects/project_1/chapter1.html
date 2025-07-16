@@ -27,42 +27,21 @@
 
 <p>In this chapter we will make a Lexer. It performs the role of taking the input and breaking it into words and identifying if it’s a keyword, identifier, space, or operator.</p>
 
-<img src="/assets/img/f8f323b9-9fd2-4dfa-8a00-8e6eb3b22936.png" alt="Code Screenshot" style="max-width: 100%; border: 1px solid #ccc;">
+<img src="/assets/project1/chp1/1.png" alt="" style="max-width: 100%; border: 1px solid #ccc;">
 
 <h2>Reading the Next Character</h2>
 
-<pre><code class="language-java">
-public void nextChar() {
-    if(index >= source.length()) {
-        currChar = '\0';
-    } else {
-        currChar = source.charAt(index);
-    }
-}
-</code></pre>
 
 <h2>Peeking Ahead</h2>
-<pre><code class="language-java">
-char peek() {
-    if(index >= source.length())
-        return '\0';
 
-    return source.charAt(index);
-}
-</code></pre>
+<img src= "/assets/project1/chp1/2.png" alt="" style="max-width: 100%; border: : 1px solid #ccc;">
+
 
 <p>This lets us see the next character without consuming it.</p>
 
 <h2>Running the Lexer</h2>
-<pre><code class="language-java">
-public static void main(String[] args) {
-    Lexer lexer = new Lexer("LET this Num123;");
-    while(lexer.currChar != '\0') {
-        System.out.println("The character = " + lexer.currChar);
-        lexer.nextChar();
-    }
-}
-</code></pre>
+
+<img src= "/assets/project1/chp1/3.png" alt="" style="max-width: 100%; border: : 1px solid #ccc;">
 
 <p>Our class works. Now we need to make some system for classifying the tokens.</p>
 
