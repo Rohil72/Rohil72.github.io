@@ -5,55 +5,94 @@
   <title>Chapter 2: The Pastor</title>
   <link rel="stylesheet" href="/assets/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <style>
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      font-family: Georgia, serif;
+      line-height: 1.6;
+    }
+    img {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    p {
+      text-align: justify;
+    }
+    a {
+      display: block;
+      margin-top: 2em;
+      text-align: center;
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
 
-<h1>Chapter 2: The Pastor</h1>
+<main>
+  <h1>Chapter 2: The Pastor</h1>
 
-<p>Instead of making the Main Function in the main file, we will Create the Parser class first. Reason to do so it primarily that I am translating the code here and not knowing the nature of functions called from Parser will cause a lot of trouble.</p>
+  <p>Instead of making the Main Function in the main file, we will Create the Parser class first. Reason to do so it primarily that I am translating the code here and not knowing the nature of functions called from Parser will cause a lot of trouble.</p>
 
-<p>It feels like walking on tight rope without having the full Understanding of the code (Which is by design of the approach for Parser that Mr. Henley has taken).</p>
+  <p>It feels like walking on tight rope without having the full Understanding of the code (Which is by design of the approach for Parser that Mr. Henley has taken).</p>
 
-<img src="/assets/project1/chp2/1.png" alt="Parser class code - image1">
+  <img src="/assets/project1/chp2/1.png" alt="Parser class code - image1">
 
-<p>After a whole bunch of code (till the first test run for printing) we will now write the main function.</p>
+  <p>After a whole bunch of code (till the first test run for printing) we will now write the main function.</p>
 
-<p>The input of files can be done in various efficient manners like using args and what not, Here I went with a method for maximising readability.</p>
+  <p>The input of files can be done in various efficient manners like using args and what not, Here I went with a method for maximising readability.</p>
 
-<img src="/assets/project1/chp2/2.png" alt="Main function setup - image2">
+  <img src="/assets/project1/chp2/2.png" alt="Main function setup - image2">
 
-<p>And naturally the text file here has PRINT "hello, world!". We further can test this with multiple Print Statements as done in Henley's Blog.</p>
+  <p>And naturally the text file here has PRINT "hello, world!". We further can test this with multiple Print Statements as done in Henley's Blog.</p>
 
-<img src="/assets/project1/chp2/3.png" alt="Print statement test - image3">
+  <img src="/assets/project1/chp2/3.png" alt="Print statement test - image3">
 
-<p>Now we will expand on the Statement function more and also the code here is very analogous to Python, Which makes my job easy.</p>
+  <p>Now we will expand on the Statement function more and also the code here is very analogous to Python, Which makes my job easy.</p>
 
-<img src="/assets/project1/chp2/4.png" alt="Statement function expansion - image4">
+  <img src="/assets/project1/chp2/4.png" alt="Statement function expansion - image4">
 
-<p>We also test using the same syntax he does after coding all the statement functions (At this point we are yet to code the comparison and expression function).</p>
+  <p>We also test using the same syntax he does after coding all the statement functions (At this point we are yet to code the comparison and expression function).</p>
 
-<p>As I write this I remark that the Python mind cannot fathom our ways of coding and getting around the files without going "CRTL S CRTL S" unless they have Autosave.</p>
+  <p>As I write this I remark that the Python mind cannot fathom our ways of coding and getting around the files without going "CRTL S CRTL S" unless they have Autosave.</p>
 
-<p>Here on out we get to some theory of how expressions are handled, anyone who has dealt with stack and precedence would know, else it is quite a fun ride to learn.
-I also wish to know why we are always taking a top down approach, oh he did mention it at the start didn’t he.</p>
+  <p>Here on out we get to some theory of how expressions are handled, anyone who has dealt with stack and precedence would know, else it is quite a fun ride to learn.
+  I also wish to know why we are always taking a top down approach, oh he did mention it at the start didn’t he.</p>
 
-<p>As we come nearing the end of the Parsing, we use Sets used in the article for GOTO, Labels and symbols Hashset. We get the syntactic advantage that using Sets we don’t have to manually check for Duplicates, it internally handles that.</p>
+  <p>As we come nearing the end of the Parsing, we use Sets used in the article for GOTO, Labels and symbols Hashset. We get the syntactic advantage that using Sets we don’t have to manually check for Duplicates, it internally handles that.</p>
 
-<p>We have a unique problem at hand, as we come really at the end and check for:</p>
+  <p>We have a unique problem at hand, as we come really at the end and check for:</p>
 
-<pre>PRINT index
+  <pre>PRINT index
 GOTO main</pre>
 
-<p>From <a href="https://austinhenley.com/blog/teenytinycompiler2.html">Austin Henley's Blog</a></p>
+  <p>From <a href="https://austinhenley.com/blog/teenytinycompiler2.html" target="_blank">Austin Henley's Blog</a></p>
 
-<p>We get the following error:</p>
+  <p>We get the following error:</p>
 
-<img src="/assets/project1/chp2/5.png" alt="PRIMARY index error - image5">
+  <img src="/assets/project1/chp2/5.png" alt="PRIMARY index error - image5">
 
-<p>Here we have an extra term of PRIMARY (index) which is not seen in Henley's Snippet. Logically if the Line "Referencing a …" is mentioned it must have 
-Passed through the print Statement at the start of the function Primary. I doubt this will have a snowfall effect, but regardless a unique situation.</p>
+  <p>Here we have an extra term of PRIMARY (index) which is not seen in Henley's Snippet. Logically if the Line "Referencing a …" is mentioned it must have 
+  Passed through the print Statement at the start of the function Primary. I doubt this will have a snowfall effect, but regardless a unique situation.</p>
 
-  <p><a href="/projects/project1.html">← Back to Project</a></p>
+  <a href="/projects/project1.html">← Back to Project</a>
+</main>
+
 </body>
 </html>
