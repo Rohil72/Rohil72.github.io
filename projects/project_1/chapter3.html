@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 3: Back to the pointy land</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="content">
+  <h1>Chapter 3: Back to the pointy land</h1>
+
+  <p>I feel as though now is a good time to say, by running in Java we got really lucky as the emitter is C as well and not directly assembly.</p>
+
+  <p>Again to not have a barrage of errors and without an understanding of what we are doing, we will not follow the top down approach, instead we will start by building out the emitter class.</p>
+
+  <p>We could try writing the emitter class in String but it would not be as efficient nor convenient (therein not analogous to Python too) as StringBuilder.</p>
+
+  <p>My preference to Java and the love for it might just stem from here. It is a very consistent language, all functions are called the same way and it makes stuff predictable. There are still new and better things yet to learn for me with Java (like I didn’t know we had a <code>System.err.println</code> just a few days ago). Also, it's just more reader-friendly than Python.</p>
+
+  <img src="/assets/project1/chp3/1.png" alt="Emitter class implementation - image1">
+
+  <p>We go back to the Parser for a bit now and make some changes while removing all our print statements.</p>
+
+  <p>We are basically just converting our language code to C code and if that feels like a cop out remember Java and Python were built like that.</p>
+
+  <p>After making some changes to the Program class within Parser we will now go back and complete the main function for testing. As I write this code translating from Python into Java the Statements of C, It truly is as absurdly funny whilst being Spectacular. Humans were not meant for all this.</p>
+
+  <p><strong>Note:</strong> We are using sets in our parsers which as I previously mentioned allows us to skip explicitly checking and to circumvent that while writing the LET function's emitter, Try this:</p>
+
+  <img src="/assets/project1/chp3/2.png" alt="LET function emitter with sets - image2">
+
+  <p>The rest is very much just translation. With this we come to the end of making this Compiler in Java.</p>
+
+  <p>I give my thanks to Austin Henley.</p>
+
+  <p><a href="/projects/project1.html">← Back to Project</a></p>
+</div>
+
+</body>
+</html>
