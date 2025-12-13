@@ -1,115 +1,166 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Rohil's Blog</title>
-  <link rel="stylesheet" href="/assets/styles.css">
-  <style>
-    body {
-      font-family: Georgia, serif;
-      max-width: 800px;
-      min-height: 100vh;
-      margin: auto;
-      padding: 2rem;
-      background: #fdfdfd;
-      color: #111;
-    }
+    <head>
+        <meta charset="utf-8" />
+        <title>Rohil's Blog</title>
+        <link rel="stylesheet" href="/assets/styles.css" />
+        <style>
+            body {
+                font-family: Georgia, serif;
+                max-width: 800px;
+                min-height: 100vh;
+                margin: auto;
+                padding: 2rem;
+                background: #fdfdfd;
+                color: #111;
+            }
 
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
+            h1 {
+                text-align: center;
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+            }
 
-    .section-header {
-      text-align: center;
-      font-size: 1.8rem;
-      margin-top: 2.5rem;
-      cursor: pointer;
-      user-select: none;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 0.5rem;
-    }
+            .section-header {
+                text-align: center;
+                font-size: 1.8rem;
+                margin-top: 2.5rem;
+                cursor: pointer;
+                user-select: none;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 0.5rem;
+            }
 
-    .section-content {
-      display: none;
-      margin-top: 1rem;
-      font-size: 1.1rem;
-    }
+            .section-content {
+                display: none;
+                margin-top: 1rem;
+                font-size: 1.1rem;
+            }
 
-    ul {
-      padding-left: 1.5rem;
-    }
+            ul {
+                padding-left: 1.5rem;
+            }
 
-    a {
-      color: #007acc;
-      text-decoration: none;
-    }
+            a {
+                color: #007acc;
+                text-decoration: none;
+            }
 
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Rohil's Blog</h1>
+        <p style="text-align: center">
+            This is my Personal Blog, I here discuss my projects, Art and Unique
+            Problems in Math and Logic I find lying around. Aside from a Proof
+            of Activity it also doubles as a Journal.
+        </p>
 
-  <h1>Rohil's Blog</h1>
-  <p style="text-align:center;">
-    This is my Personal Blog, I here discuss my projects, Art and Unique Problems in Math and Logic I find lying around.
-    Aside from a Proof of Activity it also doubles as a Journal.
-  </p>
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('projects')">
+                Projects
+            </div>
+            <div id="projects" class="section-content">
+                <p>
+                    Here below is the list of my Projects which usually involve
+                    Programming, Experimenting with Machine Learning and Models
+                    I Build.
+                </p>
+                <ul>
+                    <li>
+                        <a href="/projects/project_1/project1.html"
+                            >Tiny Compiler in Java</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/projects/project2.html"
+                            >Project 2(Currently Working on)</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-  <div class="section">
-    <div class="section-header" onclick="toggleSection('projects')">Projects</div>
-    <div id="projects" class="section-content">
-      <p>Here below is the list of my Projects which usually involve Programming, Experimenting with Machine Learning and Models I Build.</p>
-      <ul>
-        <li><a href="/projects/project_1/project1.html">Tiny Compiler in Java</a></li>
-        <li><a href="/projects/project2.html">Project Title 2</a></li>
-      </ul>
-    </div>
-  </div>
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('problems')">
+                Problems
+            </div>
+            <div id="problems" class="section-content">
+                <p>
+                    Here I list out problems in Math and Logic I stumble upon
+                    and find worth Mentioning. Work in progress
+                </p>
+            </div>
+        </div>
 
-  <div class="section">
-    <div class="section-header" onclick="toggleSection('problems')">Problems</div>
-    <div id="problems" class="section-content">
-      <p>Here I list out problems in Math and Logic I stumble upon and find worth Mentioning. Work in progress</p>
-    </div>
-  </div>
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('art')">Art</div>
+            <div id="art" class="section-content">
+                <p>
+                    Here I have Essays/Articles on pieces of Art which invoke
+                    Emotion in me. I have found what represents Art to me is in
+                    the same sense Tolstoy defines it and I strongly also
+                    believe Art is the story to what we call History. Someday
+                    I'll Add pieces I created.
+                </p>
+                <p>
+                    I have a long list of Artists and Art works I love and
+                    cherish. Here are a few names off the top of my head.
+                </p>
+                <p>
+                    I have a love for many mediums of Art including but not
+                    limited to(Updated Dec 2025):
+                </p>
+                <ul>
+                    <li>
+                        <b>Cinema:</b> Recently into a re-watching old classics
+                        and Sci-Fic
+                    </li>
+                    <li><b>TV</b></li>
+                    <li>
+                        <b>Books:</b> Currently juggling <i>Count Zero</i> by
+                        Gibson and <i>The spoke Zarathustra</i> by Nietzsche
+                    </li>
+                    <li>
+                        <b>Manga:</b> Enjoy works by Kotteri, Nihei, Yamaguchi
+                        (Blue Period)
+                    </li>
+                    <li>
+                        <b>Anime:</b> Recently watched
+                        <i>Serial Experiments Lain</i> – wild!
+                    </li>
+                    <li>
+                        <b>Fine Art:</b> Recently into the works of M.C. Escher
+                        and the Life of Caspar David Friedrich
+                    </li>
+                    <li>
+                        <b>Music:</b> It is a big spectrum of Techno and Hip-Hop
+                        Lately
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-  <div class="section">
-    <div class="section-header" onclick="toggleSection('art')">Art</div>
-    <div id="art" class="section-content">
-      <p>Here I have Essays/Articles on pieces of Art which invoke Emotion in me. I have found what represents Art to me is in the same sense Tolstoy defines it and I strongly also believe Art is the story to what we call History. Someday I'll Add pieces I created.</p>
-      <p>I have a long list of Artists and Art works I love and cherish. Here are a few names off the top of my head.</p>
-      <p>I have a love for many mediums of Art including but not limited to(Updated Dec 2025):</p>
-      <ul>
-        <li><b>Cinema:</b> Recently into a re-watching old classics and Sci-Fic</li>
-        <li><b>TV</b></li>
-        <li><b>Books:</b> Currently juggling <i>Count Zero</i> by Gibson and <i>The spoke Zarathustra</i> by Nietzsche</li>
-        <li><b>Manga:</b> Enjoy works by Kotteri, Nihei, Yamaguchi (Blue Period)</li>
-        <li><b>Anime:</b> Recently watched <i>Serial Experiments Lain</i> – wild!</li>
-        <li><b>Fine Art:</b> Recently into the works of M.C. Escher and the Life of Caspar David Friedrich </li>
-        <li><b>Music:</b> It is a big spectrum of Techno and Hip-Hop Lately</li>
-      </ul>
-    </div>
-  </div>
+        <script>
+            function toggleSection(id) {
+                const section = document.getElementById(id);
+                const isVisible = section.style.display === "block";
+                section.style.display = isVisible ? "none" : "block";
+            }
+        </script>
 
-  <script>
-    function toggleSection(id) {
-      const section = document.getElementById(id);
-      const isVisible = section.style.display === 'block';
-      section.style.display = isVisible ? 'none' : 'block';
-    }
-  </script>
-
-
-  <footer style="padding: 20px; text-align: center; background-color: #f2f2f2;">
-  <p>Contact Me</p>
-  <p>Email: <a>Rohil.wrk@gmail.com</a></p>
-  <p>GitHub: <a href="https://github.com/Rohil72" target="_blank">Rohil72</a></p>
-</footer>
-
-
-</body>
+        <footer
+            style="padding: 20px; text-align: center; background-color: #f2f2f2"
+        >
+            <p>Contact Me</p>
+            <p>Email: <a>Rohil.wrk@gmail.com</a></p>
+            <p>
+                GitHub:
+                <a href="https://github.com/Rohil72" target="_blank">Rohil72</a>
+            </p>
+        </footer>
+    </body>
 </html>
