@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Minimal Wardrobe Problem</title>
+	<link rel="stylesheet" href="/assets/style.css">
+</head>
+
+<body>
+
+<h1>The Minimal Wardrobe Problem</h1>
+
+<p>
+How many articles of clothing do you actually need to avoid repeating an outfit for an entire year (365 days)?
+</p>
+
+<p>
+At first glance, this looks like a basic combinatorics problem. Shirts times pants times ties, done. But that answer feels a little too clean. It skips over what’s really happening when we “count outfits.” So instead of jumping straight to multiplication, let’s slow down and build the idea from the ground up.
+</p>
+
+<h2>The Usual Answer (and Why It Feels Incomplete)</h2>
+
+<p>
+An outfit consists of three articles of clothing:
+</p>
+
+<ul>
+	<li>Shirts</li>
+	<li>Pants</li>
+	<li>Ties</li>
+</ul>
+
+<p>
+If you have <em>s</em> shirts, <em>p</em> pants, and <em>t</em> ties, then the total number of unique outfits is:
+</p>
+
+<p>
+<em>s × p × t</em>
+</p>
+
+<p>
+So something like 7 shirts, 7 pants, and 8 ties gives:
+</p>
+
+<p>
+<em>7 × 7 × 8 = 392</em>
+</p>
+
+<p>
+That clears the 365-day requirement. Problem solved. Except… this doesn’t explain <em>why</em> multiplication shows up here. It just assumes we’re comfortable with it.
+</p>
+
+<h2>Starting From Constraints</h2>
+
+<p>
+Instead of starting with “how many items do I own,” let’s start with restrictions.
+</p>
+
+<p>
+Suppose I can only change one article of clothing.
+</p>
+
+<p>
+If my shirt and pants are fixed, and the only thing I can change is my tie, then avoiding repeats for a year means I need 365 distinct ties. No combinatorics needed. Just brute force.
+</p>
+
+<p>
+Now loosen the constraint.
+</p>
+
+<p>
+Suppose I can change both my pants and my tie, but my shirt stays the same. Suddenly, I’m not just listing items anymore. I’m pairing choices.
+</p>
+
+<h2>What Are We Actually Counting?</h2>
+
+<p>
+Here’s where things usually get fuzzy, so let’s pin it down.
+</p>
+
+<p>
+Say I own:
+</p>
+
+<ul>
+	<li>2 shirts</li>
+	<li>2 ties</li>
+</ul>
+
+<p>
+People will say, “That’s 4 outfits.” Which is true. But notice what we’re <em>not</em> doing.
+</p>
+
+<p>
+We’re not choosing any two items from a pile of four. That would give combinations like two shirts or two ties, which isn’t an outfit. An outfit requires structure: one shirt <em>and</em> one tie.
+</p>
+
+<p>
+So what’s happening instead?
+</p>
+
+<p>
+For each shirt, I can pair it with every tie I own.
+</p>
+
+<p>
+That’s not “picking two things.” That’s making one choice from category A and one choice from category B.
+</p>
+
+<p>
+In probability terms, when two independent choices happen together, we multiply the number of options.
+</p>
+
+<p>
+So with 2 shirts and 2 ties:
+</p>
+
+<p>
+<em>2 × 2 = 4</em>
+</p>
+
+<h2>Scaling the Idea</h2>
+
+<p>
+Now add pants.
+</p>
+
+<p>
+Each outfit is formed by making three independent selections:
+</p>
+
+<ul>
+	<li>One shirt</li>
+	<li>One pair of pants</li>
+	<li>One tie</li>
+</ul>
+
+<p>
+Each choice doesn’t reduce the options for the others. That independence is the entire reason multiplication works here.
+</p>
+
+<p>
+If you want to describe this more formally, you can think of it as counting combinations across categories rather than combinations within a single set. That’s why binomial coefficients like <em>nC2</em> aren’t really the right tool here unless you force them into the problem.
+</p>
+
+<p>
+What matters is structure, not just quantity.
+</p>
+
+<h2>Why This Matters</h2>
+
+<p>
+Once you see outfits as structured selections rather than vague “combinations,” a lot of extensions become clearer:
+</p>
+
+<ul>
+	<li>What happens if some items can be worn in multiple ways?</li>
+	<li>What if outfits don’t always require all three pieces?</li>
+	<li>What configuration minimizes the total number of items owned?</li>
+</ul>
+
+<p>
+Those questions aren’t about memorizing formulas. They’re about modeling the situation correctly first, then letting the math follow.
+</p>
+
+<h2>Next Steps</h2>
+
+<p>
+From here, you could:
+</p>
+
+<ul>
+	<li>Formally optimize the total item count</li>
+	<li>Generalize to <em>n</em> clothing categories</li>
+	<li>Add real-world constraints like laundry cycles or seasonality</li>
+</ul>
+
+<p>
+None of this requires advanced math. It just requires being honest about what’s being counted.
+</p>
+
+<hr>
+
+<p>
+<a href="/index.html">← Back to Home</a>
+</p>
+
+</body>
+</html>
