@@ -1,53 +1,840 @@
+/* ==========================================================================
+   ROHIL.ARCHIVE // DESIGN SYSTEM
+   Inspired by: Bauhaus Constructivism, Dieter Rams ("Weniger, aber besser"),
+   and Charlotte Perriand's Asymmetric Shelving.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Outfit:wght@400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+:root {
+  /* Braun & Bauhaus Neutral Palette */
+  --bg: #F7F5F0;
+  --surface: #FFFFFF;
+  --surface-alt: #EFECE4;
+  --surface-hover: #F2EFE8;
+  --text: #161618;
+  --text-muted: #6B6860;
+  --border: #D8D4CA;
+  --border-strong: #161618;
+  
+  /* Rams Functional Accents */
+  --accent-red: #D14934;    /* Braun vermillion indicator */
+  --accent-blue: #1D3557;   /* Prussian cobalt */
+  --accent-ochre: #C88A28;  /* Bauhaus ochre */
+  --accent-sage: #47604F;   /* Subtle olive green */
+  
+  /* Spine Color Codes */
+  --spine-compiler: #23272F;
+  --spine-compiler-text: #F7F5F0;
+  --spine-logic: #782D21;
+  --spine-logic-text: #FAF5F0;
+  --spine-art: #2B3A36;
+  --spine-art-text: #F0F5F3;
+  --spine-reserved: #E5E1D6;
+  --spine-reserved-text: #8E8A7E;
+  
+  /* Typography Scale */
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Physical Shadows & Geometry */
+  --radius: 0px;
+  --shadow-flat: 2px 2px 0px var(--border);
+  --shadow-hard: 4px 4px 0px var(--border-strong);
+  --shelf-depth: 14px;
+}
+
+[data-theme="dark"] {
+  --bg: #111215;
+  --surface: #181A1F;
+  --surface-alt: #20232A;
+  --surface-hover: #262930;
+  --text: #ECEAE4;
+  --text-muted: #95938B;
+  --border: #2B2F38;
+  --border-strong: #ECEAE4;
+  
+  --accent-red: #E05A47;
+  --accent-blue: #4A7BB0;
+  --accent-ochre: #E0A438;
+  --accent-sage: #5E826B;
+  
+  --spine-compiler: #181B22;
+  --spine-compiler-text: #ECEAE4;
+  --spine-logic: #521E16;
+  --spine-logic-text: #F5EAE8;
+  --spine-art: #1D2825;
+  --spine-art-text: #E5EDE9;
+  --spine-reserved: #1F2229;
+  --spine-reserved-text: #5A5E6B;
+  
+  --shadow-flat: 2px 2px 0px #0A0A0C;
+  --shadow-hard: 4px 4px 0px #0A0A0C;
+}
+
+/* Base Reset & Architecture */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  max-width: 800px;
-  margin: 40px auto;
-  font-family: Georgia, 'Segoe UI', serif;
-  line-height: 1.7;
-  font-size: 18px;
-  color: #222;
-  background-color: #fdfdfd;
-  padding: 0 20px;
-  text-align: justify;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-h1, h2, h3 {
-  text-align: center;
-  margin-top: 2em;
-  margin-bottom: 0.5em;
-  font-weight: 600;
-  color: #333;
+/* Universal Framing */
+.archive-frame {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 20px 60px 20px;
 }
 
-hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 40px 0;
+/* System Header (Dieter Rams Radio Frequency/Registry Bar) */
+.system-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin-bottom: 24px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  box-shadow: var(--shadow-flat);
 }
 
-img {
-  display: block;
-  margin: 30px auto;
-  max-width: 100%;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-a {
-  color: #0066cc;
+.system-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: var(--text);
   text-decoration: none;
 }
 
-a:hover {
+.led-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-red);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 6px var(--accent-red);
+}
+
+.system-header .reg-info {
+  color: var(--text-muted);
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .system-header .reg-info {
+    display: inline-block;
+  }
+}
+
+.theme-toggle-btn {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+/* ==========================================================================
+   HOMEPAGE ASYMMETRICAL GRID
+   ========================================================================== */
+.asymmetric-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .asymmetric-grid {
+    grid-template-columns: 340px 1fr;
+  }
+}
+
+/* Left Anchor: THE STUDY */
+.bay-study {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.panel-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px;
+  box-shadow: var(--shadow-flat);
+}
+
+.panel-header-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.panel-header-tag::before {
+  content: "■";
+  color: var(--accent-red);
+  font-size: 8px;
+}
+
+.study-name {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.study-role {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.study-bio {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.manifesto-quote {
+  border-left: 2px solid var(--accent-red);
+  padding-left: 12px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+/* Coordinates List */
+.coord-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.coord-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.coord-item a {
+  color: var(--text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s ease;
+}
+
+.coord-item a:hover {
+  color: var(--accent-red);
+}
+
+/* Cultural Curations Shelf in the Study */
+.curation-shelf {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.curation-item {
+  padding: 10px 12px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.curation-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.curation-desc {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   RIGHT BAY: THE ARCHITECTURAL SHELVES
+   ========================================================================== */
+.bay-shelves {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.shelf-unit {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px 20px 0px 20px;
+  box-shadow: var(--shadow-flat);
+  position: relative;
+}
+
+.shelf-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+}
+
+.shelf-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.shelf-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* The Bookshelf Deck */
+.shelf-books-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  padding-top: 20px;
+  /* Visual solid shelf plank underneath books */
+  border-bottom: 4px solid var(--border-strong);
+  position: relative;
+}
+
+/* Slipcase Box Set (For Multi-Volume series like Tiny Compiler) */
+.slipcase-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  padding: 8px 10px 0 10px;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  background: var(--surface-alt);
+  position: relative;
+}
+
+.slipcase-label {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  text-transform: uppercase;
+}
+
+/* Tactile Vertical Book Spine */
+.book-spine {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  width: 48px;
+  height: 220px;
+  padding: 12px 0;
+  position: relative;
+  cursor: pointer;
+  transform-origin: bottom center;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease;
+  border-radius: 1px 1px 0 0;
+  box-shadow: 1px 0px 2px rgba(0,0,0,0.15), -1px 0px 2px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.book-spine:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 14px 20px var(--shadow-hard);
+  z-index: 10;
+}
+
+/* Color variations */
+.spine-theme-compiler {
+  background: var(--spine-compiler);
+  color: var(--spine-compiler-text);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.spine-theme-logic {
+  background: var(--spine-logic);
+  color: var(--spine-logic-text);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.spine-theme-art {
+  background: var(--spine-art);
+  color: var(--spine-art-text);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.spine-theme-reserved {
+  background: var(--spine-reserved);
+  color: var(--spine-reserved-text);
+  border: 1px dashed var(--border);
+  box-shadow: none;
+  cursor: default;
+}
+
+.spine-theme-reserved:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Spine Proportions */
+.spine-h-tall { height: 235px; width: 50px; }
+.spine-h-med  { height: 215px; width: 46px; }
+.spine-h-short{ height: 195px; width: 44px; }
+
+/* Internal Spine Anatomy */
+.spine-head {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding-top: 4px;
+}
+
+.spine-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  margin: auto 0;
+  text-transform: uppercase;
+}
+
+.spine-foot {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  padding-bottom: 2px;
+}
+
+.spine-accent-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--accent-red);
+  margin-bottom: 4px;
+}
+
+/* Spine Hover Tooltip / Floating Card */
+.book-spine .spine-tooltip {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  width: 220px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  padding: 12px;
+  font-family: var(--font-sans);
+  box-shadow: var(--shadow-hard);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 50;
+  text-align: left;
+}
+
+.book-spine:hover .spine-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltip-vol {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--accent-red);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.tooltip-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.tooltip-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.tooltip-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  padding-top: 6px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Shelf Footer Description */
+.shelf-meta-bar {
+  padding: 12px 0 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.shelf-meta-bar a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.shelf-meta-bar a:hover {
   text-decoration: underline;
+  color: var(--accent-red);
 }
 
-ul {
-  padding-left: 1.2em;
+/* ==========================================================================
+   ARTICLE & READING VIEW STYLES
+   ========================================================================== */
+.article-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 30px 20px 80px 20px;
 }
 
-code {
-  background-color: #f5f5f5;
-  padding: 2px 5px;
-  border-radius: 4px;
-  font-family: monospace;
+/* Book Jacket / Article Top Ribbon */
+.article-ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-flat);
+  margin-bottom: 36px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.article-ribbon a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.article-ribbon a:hover {
+  color: var(--accent-red);
+}
+
+.article-meta-tag {
+  color: var(--text-muted);
+}
+
+/* Article Typography */
+.article-header {
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-category {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--accent-red);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.article-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.article-summary-lead {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Article Prose */
+.article-content {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.article-content p {
+  margin-bottom: 1.6em;
+}
+
+.article-content h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-top: 2.2em;
+  margin-bottom: 0.8em;
+  color: var(--text);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-content h3 {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+  color: var(--text);
+}
+
+.article-content ul, 
+.article-content ol {
+  margin-bottom: 1.6em;
+  padding-left: 1.4em;
+}
+
+.article-content li {
+  margin-bottom: 0.5em;
+}
+
+.article-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+.article-content a {
+  color: var(--accent-red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-content a:hover {
+  color: var(--text);
+}
+
+.article-content code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  color: var(--text);
+}
+
+.article-content pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 16px 20px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 28px 0;
+  box-shadow: var(--shadow-flat);
+}
+
+.article-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 32px auto;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-flat);
+}
+
+/* Math formula highlight box */
+.math-block {
+  background: var(--surface-alt);
+  border-left: 3px solid var(--accent-blue);
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--text);
+}
+
+/* Series Navigation Bookmark at Chapter Bottom */
+.chapter-nav-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-hard);
+  margin-top: 50px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.chapter-nav-btn {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s ease;
+}
+
+.chapter-nav-btn:hover {
+  color: var(--accent-red);
+}
+
+/* Colophon Footer */
+.colophon-footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .colophon-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+/* Mobile Responsiveness for Bookshelf */
+@media (max-width: 768px) {
+  .shelf-books-row {
+    flex-wrap: wrap;
+    align-items: stretch;
+    border-bottom: none;
+    gap: 8px;
+  }
+  
+  .slipcase-box {
+    flex-direction: column;
+    width: 100%;
+    padding: 16px 12px 12px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .book-spine {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 12px 16px;
+    transform: none !important;
+    border-radius: 0;
+  }
+
+  .spine-title {
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin: 0;
+  }
+
+  .book-spine .spine-tooltip {
+    display: none; /* Mobile users tap to open directly */
+  }
+
+  .study-name {
+    font-size: 1.8rem;
+  }
+  
+  .article-title {
+    font-size: 2rem;
+  }
 }

@@ -1,47 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Chapter 3: Back to the pointy land</title>
-  <link rel="stylesheet" href="/assets/styles.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chapter 3: Back to Pointy Land // Tiny Compiler in Java</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('rohil_theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
 </head>
 <body>
 
-<div class="content">
-  <h1>Chapter 3: Back to the pointy land</h1>
+<div class="article-container">
 
-  <p>I feel as though now is a good time to say, by running in Java we got really lucky as the emitter is C as well and not directly assembly.</p>
+    <!-- Top Navigation Ribbon -->
+    <nav class="article-ribbon">
+        <a href="/projects/project_1/chapter2.html">← PREV: CH.2 THE PASTOR</a>
+        <span class="article-meta-tag">VOL. 03 // CHAPTER 3 OF 3</span>
+        <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span>THEME:</span> <span id="themeLabel">AUTO</span>
+        </button>
+    </nav>
 
-  <p>Again to not have a barrage of errors and without an understanding of what we are doing, we will not follow the top down approach, instead we will start by building out the emitter class.</p>
+    <!-- Header -->
+    <header class="article-header">
+        <div class="article-category">TINY COMPILER IN JAVA // PART III (FINALE)</div>
+        <h1 class="article-title">Chapter 3: Back to Pointy Land</h1>
+        <p class="article-summary-lead">
+            Building the C code emitter: leveraging Java's StringBuilder, compiling down to valid C source, 
+            and completing the compiler pipeline.
+        </p>
+    </header>
 
-  <p>We could try writing the emitter class in String but it would not be as efficient nor convenient (therein not analogous to Python too) as StringBuilder.</p>
+    <!-- Main Content -->
+    <main class="article-content">
+        <p>
+            By choosing to target C as our emission language rather than targeting assembly or bytecode directly, 
+            we sidestep the nightmare of machine architecture variance and register allocation. We let standard 
+            C compilers (GCC, Clang) handle the machine-level heavy lifting.
+        </p>
 
-  <p>My preference to Java and the love for it might just stem from here. It is a very consistent language, all functions are called the same way and it makes stuff predictable. There are still new and better things yet to learn for me with Java (like I didn’t know we had a <code>System.err.println</code> just a few days ago). Also, it's just more reader-friendly than Python.</p>
+        <p>
+            Again, to prevent a cascade of compilation errors without understanding the downstream dependencies, 
+            we avoid a top-down approach and instead build out the <code>Emitter</code> class first.
+        </p>
 
-  <img src="/assets/project1/chp3/1.png" alt="Emitter class implementation - image1">
+        <p>
+            We could write the emitter using raw <code>String</code> concatenation, but in Java that would allocate 
+            endless temporary objects on the heap. Using <code>StringBuilder</code> provides mutable, contiguous memory 
+            buffers and predictable performance.
+        </p>
 
-  <p>We go back to the Parser for a bit now and make some changes while removing all our print statements.</p>
+        <p>
+            My appreciation for Java stems from this predictability: standard library functions follow consistent 
+            naming conventions, interfaces are explicit, and refactoring is mechanically reliable. Even with small discoveries 
+            (like realizing standard error streams exist via <code>System.err.println</code>), Java remains remarkably readable.
+        </p>
 
-  <p>We are basically just converting our language code to C code and if that feels like a cop out remember Java and Python were built like that.</p>
+        <img src="/assets/project1/chp3/1.png" alt="Emitter class implementation in Java">
 
-  <p>After making some changes to the Program class within Parser we will now go back and complete the main function for testing. As I write this code translating from Python into Java the Statements of C, It truly is as absurdly funny whilst being Spectacular. Humans were not meant for all this.</p>
+        <hr>
 
-  <p><strong>Note:</strong> We are using sets in our parsers which as I previously mentioned allows us to skip explicitly checking and to circumvent that while writing the LET function's emitter, Try this:</p>
+        <h2>Integrating the Emitter with the Parser</h2>
 
-  <img src="/assets/project1/chp3/2.png" alt="LET function emitter with sets - image2">
+        <p>
+            With the emitter ready, we return to the <code>Parser</code> to weave emission hooks into our grammar matchers, 
+            removing earlier debug print statements.
+        </p>
 
-  <p>The rest is very much just translation. With this we come to the end of making this Compiler in Java. Anyone Intrested to Try it can use the link below to access the code files on my github with a few Example code alongside it.</p>
+        <p>
+            At its core, our compiler is translating a high-level BASIC dialect into structured C code. If that feels 
+            like an abstraction shortcut, remember that early C++ (Cfront) and Python's Cython operate on the exact same premise.
+        </p>
 
-<a href="https://github.com/Rohil72/TinyCompiler" target="_blank">
-    TinyCompiler on GitHub
-</a>
+        <p>
+            After wiring the program state within the parser, we complete the <code>main</code> harness for end-to-end testing. 
+            Translating statement structures between Python, Java, and C feels both surreal and spectacular.
+        </p>
 
-  <p>I give my thanks to Austin Henley.</p>
+        <p>
+            <strong>Note on Sets:</strong> We use Java <code>Set</code> collections in our parser, allowing us to circumvent 
+            explicit linear checks. When writing the emitter logic for the <code>LET</code> statement, here is the implementation:
+        </p>
 
- <a href="/projects/project_1/project1.html">← Back to Project</a>
- <a href="/index.html">← Back to Home</a>
+        <img src="/assets/project1/chp3/2.png" alt="LET function emitter with sets">
+
+        <hr>
+
+        <h2>Conclusion &amp; Repository</h2>
+
+        <p>
+            The remaining steps are pure code generation and verification. With this, we have completed the full 
+            pipeline: from raw characters to classified tokens, from tokens to grammar trees, and from grammar trees 
+            to clean, compilable C code.
+        </p>
+
+        <p>
+            The complete source code with example scripts is open on GitHub:
+        </p>
+
+        <div class="panel-block" style="margin: 28px 0; border-left: 3px solid var(--accent-red);">
+            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-red); margin-bottom: 4px;">SOURCE REPOSITORY</div>
+            <a href="https://github.com/Rohil72/TinyCompiler" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;">
+                GitHub: Rohil72/TinyCompiler ↗
+            </a>
+            <p style="font-family: var(--font-sans); font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+                Complete Java source files, test suites, and sample BASIC source programs.
+            </p>
+        </div>
+
+        <p style="font-size: 15px; color: var(--text-muted);">
+            Special thanks to Austin Henley for the inspirational foundation.
+        </p>
+
+        <!-- Chapter Navigation Bookmark -->
+        <div class="chapter-nav-box">
+            <a href="/projects/project_1/chapter2.html" class="chapter-nav-btn">← Chapter 2: The Pastor</a>
+            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">SERIES COMPLETE</span>
+            <a href="/projects/project_1/project1.html" class="chapter-nav-btn">Series Folio Overview →</a>
+        </div>
+    </main>
+
+    <!-- Colophon -->
+    <footer class="colophon-footer">
+        <div>ROHIL.ARCHIVE // SYSTEMS &amp; COMPILERS</div>
+        <div><a href="/index.html" style="color: inherit; text-decoration: none;">Return to Home Shelves ↗</a></div>
+    </footer>
+
 </div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function updateThemeUI(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeLabel.textContent = 'DARK';
+            localStorage.setItem('rohil_theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeLabel.textContent = 'LIGHT';
+            localStorage.setItem('rohil_theme', 'light');
+        }
+    }
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeUI(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        updateThemeUI(isDark ? 'light' : 'dark');
+    });
+</script>
 
 </body>
 </html>

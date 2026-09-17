@@ -1,31 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>The Minimal Wardrobe Problem</title>
-        <link rel="stylesheet" href="/assets/style.css" />
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Minimal Wardrobe Problem // Discrete Logic</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('rohil_theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
 
-    <body>
-        <h1>The Minimal Wardrobe Problem</h1>
+<div class="article-container">
 
+    <!-- Top Navigation Ribbon -->
+    <nav class="article-ribbon">
+        <a href="/index.html">← RETURN TO ARCHIVE</a>
+        <span class="article-meta-tag">SHELF 02 // VOL. 04: DISCRETE LOGIC</span>
+        <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span>THEME:</span> <span id="themeLabel">AUTO</span>
+        </button>
+    </nav>
+
+    <!-- Header -->
+    <header class="article-header">
+        <div class="article-category">MONOGRAPH // COMBINATORICS &amp; CONSTRAINTS</div>
+        <h1 class="article-title">The Minimal Wardrobe Problem</h1>
+        <p class="article-summary-lead">
+            How many articles of clothing do you actually need to avoid repeating an outfit for an entire year? 
+            Deconstructing combinations from fundamental constraints.
+        </p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="article-content">
         <p>
-            How many articles of clothing do you actually need to avoid
-            repeating an outfit for an entire year (365 days)?
+            How many articles of clothing do you actually need to avoid repeating an outfit for an entire year (365 days)?
         </p>
 
         <p>
-            At first glance, this looks like a basic combinatorics problem.
-            Shirts times pants times ties, done. But that answer feels a little
-            too clean. It skips over what’s really happening when we “count
-            outfits.” So instead of jumping straight to multiplication, let’s
-            slow down and build the idea from the ground up.
+            At first glance, this looks like a basic combinatorics problem. Shirts times pants times ties, done. 
+            But that answer feels a little too clean. It skips over what’s really happening when we “count outfits.” 
+            So instead of jumping straight to multiplication, let’s slow down and build the idea from the ground up.
         </p>
 
         <h2>The Usual Answer (and Why It Feels Incomplete)</h2>
 
-        <p>An outfit consists of three articles of clothing:</p>
+        <p>An outfit consists of three distinct articles of clothing:</p>
 
         <ul>
             <li>Shirts</li>
@@ -34,52 +62,51 @@
         </ul>
 
         <p>
-            If you have <em>s</em> shirts, <em>p</em> pants, and
-            <em>t</em> ties, then the total number of unique outfits is:
+            If you own <em>s</em> shirts, <em>p</em> pants, and <em>t</em> ties, then the total number of unique outfits is:
         </p>
 
-        <p>
-            <em>s × p × t</em>
-        </p>
+        <div class="math-block">
+            Outfits = s × p × t
+        </div>
 
         <p>So something like 7 shirts, 7 pants, and 8 ties gives:</p>
 
-        <p>
-            <em>7 × 7 × 8 = 392</em>
-        </p>
+        <div class="math-block">
+            7 × 7 × 8 = 392 unique outfits
+        </div>
 
         <p>
-            That clears the 365-day requirement. Problem solved. Except… this
-            doesn’t explain <em>why</em> multiplication shows up here. It just
-            assumes we’re comfortable with it.
+            That clears the 365-day requirement easily. Problem solved. Except… this doesn’t explain 
+            <em>why</em> multiplication shows up here. It simply assumes we are comfortable taking it as an axiom.
         </p>
+
+        <hr>
 
         <h2>Starting From Constraints</h2>
 
         <p>
-            Instead of starting with “how many items do I own,” let’s start with
-            restrictions.
+            Instead of starting with “how many items do I own,” let’s start with restrictions.
         </p>
 
         <p>Suppose I can only change one article of clothing.</p>
 
         <p>
-            If my shirt and pants are fixed, and the only thing I can change is
-            my tie, then avoiding repeats for a year means I need 365 distinct
-            ties. No combinatorics needed. Just brute force.
+            If my shirt and pants are fixed, and the only thing I can change is my tie, then avoiding repeats for a year 
+            means I need 365 distinct ties. No combinatorics needed. Just brute force linear accumulation.
         </p>
 
         <p>Now loosen the constraint.</p>
 
         <p>
-            Suppose I can change both my pants and my tie, but my shirt stays
-            the same. Suddenly, I’m not just listing items anymore. I’m pairing
-            choices.
+            Suppose I can change both my pants and my tie, but my shirt stays the same. Suddenly, I’m not just listing 
+            items anymore. I’m pairing choices.
         </p>
 
-        <h2>What is Going Onnnnnnnnnn ?</h2>
+        <hr>
 
-        <p>Here’s where things usually get fuzzy.</p>
+        <h2>What Is Actually Happening?</h2>
+
+        <p>Here is where things usually get fuzzy.</p>
 
         <p>Say I own:</p>
 
@@ -89,15 +116,13 @@
         </ul>
 
         <p>
-            People will say, “That’s 4 outfits.” Which is true. But notice what
-            we’re <em>not</em> doing.
+            People will say, “That’s 4 outfits.” Which is true. But notice what we’re <em>not</em> doing.
         </p>
 
         <p>
-            We’re not choosing any two items from a pile of four. That would
-            give combinations like two shirts or two ties, which isn’t an
-            outfit. An outfit requires structure: one shirt <em>and</em> one
-            tie.
+            We are not choosing any two items from a random pile of four items. That would allow invalid combinations 
+            like two shirts or two ties, which doesn't qualify as an outfit. An outfit requires categorical structure: 
+            one shirt <em>and</em> one tie.
         </p>
 
         <p>So what’s happening instead?</p>
@@ -105,24 +130,23 @@
         <p>For each shirt, I can pair it with every tie I own.</p>
 
         <p>
-            That’s not “picking two things.” That’s making one choice from
-            category A and one choice from category B.
+            That’s not “picking two things.” That is making one choice from Category A and one choice from Category B.
         </p>
 
         <p>
-            In probability terms, when two independent choices happen together,
-            we multiply the number of options.
+            In probability and set theory, when two independent selections occur simultaneously, we multiply the 
+            cardinalities of the respective option sets:
         </p>
 
-        <p>So with 2 shirts and 2 ties:</p>
+        <div class="math-block">
+            |A × B| = |A| × |B| = 2 × 2 = 4
+        </div>
 
-        <p>
-            <em>2 × 2 = 4</em>
-        </p>
+        <hr>
 
-        <h2>Lets Add some Denim</h2>
+        <h2>Adding the Third Dimension: Pants</h2>
 
-        <p>Now add pants.</p>
+        <p>Now introduce pants.</p>
 
         <p>Each outfit is formed by making three independent selections:</p>
 
@@ -133,60 +157,81 @@
         </ul>
 
         <p>
-            Each choice doesn’t reduce the options for the others. That
-            independence is the entire reason multiplication works here.
+            Crucially, choosing a shirt does not reduce or constrain the available choices for pants or ties. 
+            That independence is the sole reason multiplication works here.
         </p>
 
         <p>
-            If you want to describe this more formally, you can think of it as
-            counting combinations across categories rather than combinations
-            within a single set. That’s why binomial coefficients like
-            <em>nC2</em> aren’t really the right tool here unless you force them
-            into the problem.
+            Formally, this is the Cartesian product across multiple distinct partitions, rather than unconstrained 
+            combinations within a single homogeneous set. That is why binomial coefficients like 
+            <code>nCr</code> aren’t the natural tool here unless artificially forced onto the problem.
         </p>
 
-        <h2>Why Bother</h2>
+        <hr>
+
+        <h2>Why Bother?</h2>
 
         <p>
-            Once you see outfits as structured selections rather than vague
-            “combinations,” a lot of extensions become clearer:
+            Once you view outfits as structured Cartesian selections rather than vague “combinations,” 
+            several interesting extensions immediately unlock:
         </p>
 
         <ul>
-            <li>What happens if some items can be worn in multiple ways?</li>
-            <li>What if outfits don’t always require all three pieces?</li>
-            <li>
-                What configuration minimizes the total number of items owned?
-            </li>
+            <li>What happens if certain items are versatile and can be worn across multiple roles?</li>
+            <li>What if an outfit doesn't strictly require all three pieces (e.g., casual days without ties)?</li>
+            <li>What configuration mathematically minimizes the total sum of physical items owned (<em>s + p + t</em>) while maximizing the product (<em>s × p × t ≥ 365</em>)?</li>
         </ul>
 
         <p>
-            Those questions aren’t about memorizing formulas. They’re about
-            modeling the situation correctly first, then letting the math
-            follow.
+            By AM-GM inequality, the sum <em>s + p + t</em> is minimized when the factors are as close to equal as possible: 
+            <em>∛365 ≈ 7.14</em>, leading directly to the 7 × 7 × 8 distribution.
         </p>
-
-        <h2>Next Steps</h2>
-
-        <p>From here, you could:</p>
-
-        <ul>
-            <li>Formally optimize the total item count</li>
-            <li>Generalize to <em>n</em> clothing categories</li>
-            <li>
-                Add real-world constraints like laundry cycles or seasonality
-            </li>
-        </ul>
 
         <p>
-            None of this requires advanced math. It just requires being honest
-            about what’s being counted.
+            Those realizations aren't about memorizing arbitrary formulas. They are about modeling the physical 
+            constraints correctly first, then letting the mathematics naturally follow.
         </p>
 
-        <hr />
+        <!-- Chapter Navigation Bookmark -->
+        <div class="chapter-nav-box">
+            <a href="/index.html" class="chapter-nav-btn">← Return to Shelf 02</a>
+            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">VOL. 04 // COMPLETE</span>
+            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-sage);">NEXT: PROBLEM 02 [IN DRAFT]</span>
+        </div>
+    </main>
 
-        <p>
-            <a href="/index.html">← Back to Home</a>
-        </p>
-    </body>
+    <!-- Colophon -->
+    <footer class="colophon-footer">
+        <div>ROHIL.ARCHIVE // DISCRETE LOGIC &amp; PUZZLES</div>
+        <div>TYPESET IN SYNE, NEWSREADER &amp; JETBRAINS MONO</div>
+    </footer>
+
+</div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function updateThemeUI(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeLabel.textContent = 'DARK';
+            localStorage.setItem('rohil_theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeLabel.textContent = 'LIGHT';
+            localStorage.setItem('rohil_theme', 'light');
+        }
+    }
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeUI(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        updateThemeUI(isDark ? 'light' : 'dark');
+    });
+</script>
+
+</body>
 </html>

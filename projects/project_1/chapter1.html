@@ -1,97 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Chapter 1: Lex Luther</title>
-  <link rel="stylesheet" href="/assets/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chapter 1: Lex Luther // Tiny Compiler in Java</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('rohil_theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
 </head>
 <body>
 
-<h1>Chapter 1: Lex Luther</h1>
+<div class="article-container">
 
-<p>We are forming the language on the BASIC Dialect. Similar to the Syntax scope of the original article we will also do the same but maybe add a few things like some data structures.</p>
+    <!-- Top Navigation Ribbon -->
+    <nav class="article-ribbon">
+        <a href="/projects/project_1/project1.html">← COMPILER FOLIO</a>
+        <span class="article-meta-tag">VOL. 01 // CHAPTER 1 OF 3</span>
+        <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span>THEME:</span> <span id="themeLabel">AUTO</span>
+        </button>
+    </nav>
 
-<p>Our language will allow a variety of the basic operations that you'd expect from a programming language. In particular, it will support:</p>
-<ul>
-  <li>Numerical variables</li>
-  <li>Basic arithmetic</li>
-  <li>If statements</li>
-  <li>While loops</li>
-  <li>Print text and numbers</li>
-  <li>Input numbers</li>
-  <li>Labels and goto</li>
-  <li>Comments</li>
-</ul>
+    <!-- Header -->
+    <header class="article-header">
+        <div class="article-category">TINY COMPILER IN JAVA // PART I</div>
+        <h1 class="article-title">Chapter 1: Lex Luther</h1>
+        <p class="article-summary-lead">
+            Building the tokenizer: breaking raw input into discrete tokens, managing Java's TokenType Enums, 
+            and handling newline detection.
+        </p>
+    </header>
 
-<p>From <a href="https://austinhenley.com/blog/teenytinycompiler1.html">austinhenley.com</a></p>
+    <!-- Main Content -->
+    <main class="article-content">
+        <p>
+            We are forming our language based on the BASIC dialect. Similar to the syntax scope of the 
+            original article by Austin Henley, we will maintain the core operations while preparing 
+            the ground for custom data structures down the line.
+        </p>
 
-<hr>
+        <p>
+            Our language will support a standard suite of basic operations expected from a foundational programming language:
+        </p>
 
-<p>In this chapter we will make a Lexer. It performs the role of taking the input and breaking it into words and identifying if it’s a keyword, identifier, space, or operator.</p>
+        <ul>
+            <li>Numerical variables</li>
+            <li>Basic arithmetic (addition, subtraction, multiplication, division)</li>
+            <li>If statements and branch conditions</li>
+            <li>While loops</li>
+            <li>Printing text and numbers</li>
+            <li>User input for numeric values</li>
+            <li>Labels and goto jumps</li>
+            <li>Single-line and block comments</li>
+        </ul>
 
-<h2>Reading the Next Character</h2>
-<img src="/assets/project1/chp1/1.png" alt="Reading character">
+        <p style="font-size: 14px; color: var(--text-muted);">
+            Reference: <a href="https://austinhenley.com/blog/teenytinycompiler1.html" target="_blank" rel="noopener noreferrer">austinhenley.com/blog/teenytinycompiler1.html ↗</a>
+        </p>
 
-<h2>Peeking Ahead</h2>
-<img src="/assets/project1/chp1/2.png" alt="Peeking ahead">
+        <hr>
 
-<p>This lets us see the next character without consuming it.</p>
+        <p>
+            In this chapter, we implement the <strong>Lexer</strong> (or Tokenizer). Its responsibility is straightforward: 
+            take raw source code as a stream of characters, break it into meaningful words, and classify whether each token 
+            is a keyword, identifier, whitespace, or operator.
+        </p>
 
-<hr>
+        <h2>Reading the Next Character</h2>
+        <p>We begin by maintaining a pointer to our current position in the source text and consuming characters sequentially.</p>
+        <img src="/assets/project1/chp1/1.png" alt="Reading character logic in Java">
 
-<h2>Running the Lexer</h2>
-<img src="/assets/project1/chp1/3.png" alt="Running the lexer">
+        <h2>Peeking Ahead</h2>
+        <p>
+            Peeking allows us to inspect the subsequent character in the stream without advancing our internal pointer. 
+            This is critical for operators that span multiple characters (like <code>==</code>, <code>&lt;=</code>, or comments).
+        </p>
+        <img src="/assets/project1/chp1/2.png" alt="Peeking ahead in source string">
 
-<p>Our class works. Now we need to make some system for classifying the tokens.</p>
+        <hr>
 
-<h2>Token Type Enum</h2>
+        <h2>Running the Lexer</h2>
+        <p>
+            With basic pointer advancement and character inspection in place, we run the initial lexer loop. 
+            Now, we need a formalized classification system for the tokens we extract.
+        </p>
+        <img src="/assets/project1/chp1/3.png" alt="Running the lexer skeleton">
 
-<p>This feels repetitive in nature and while production-level code is usually quite a bit different, this gets the job done.</p>
+        <h2>The Token Type Enum</h2>
+        <p>
+            Building the token table can feel repetitive, and while production-grade compilers typically employ 
+            table-driven lexer generators (like Flex or ANTLR), implementing this by hand gives an unmatched mental 
+            model of the lexical phase.
+        </p>
 
-<p>Java’s JIT can optimize arithmetic operations by using native CPU instructions, bringing performance closer to low-level languages like C — though we don’t manually reach the transistor level</p>
+        <p>
+            Java’s JIT compiler can optimize arithmetic operations using native CPU instructions, bringing execution 
+            performance closer to low-level languages like C—even if we don’t manually control memory at the pointer level.
+        </p>
 
-<p>Another example of optimization is seen in Python where using NumPy is faster than `A * B`. That’s because NumPy is written in C under the hood.</p>
+        <p>
+            Another everyday example of optimization is Python's NumPy: calling <code>np.dot(A, B)</code> is dramatically faster 
+            than a pure Python loop because NumPy delegates down to vectorized C and BLAS under the hood.
+        </p>
 
-<p>Even if we are just relabeling things like "the character `+` is to be interpreted as plus", it matters — especially in contexts where optimization has real impact. In some systems, you’d rather use a custom language.</p>
+        <p>
+            Even when we are simply relabeling symbols—stating that the character <code>+</code> maps to the token 
+            <code>PLUS</code>—it matters. In systems programming, representation is everything.
+        </p>
 
-<p>We use Enums for the <code>TokenType</code> class. Enums are very compatible and optimize switch-case logic.</p>
+        <p>
+            We define our token types using a strongly typed Java <code>enum</code>. Enums in Java are full classes, 
+            which enables clean, optimized <code>switch</code> logic during parsing.
+        </p>
+        <img src="/assets/project1/chp1/4.png" alt="Token type enum definitions in Java">
 
-<img src="/assets/project1/chp1/4.png" alt="Token enums">
+        <hr>
 
-<hr>
+        <h2>Whitespace &amp; Comments</h2>
+        <p>
+            In Java, unlike Python, we explicitly handle newline characters (<code>\n</code>). We append an explicit 
+            newline at the conclusion of the input buffer to simplify EOF (End of File) detection.
+        </p>
 
-<h2>Whitespace & Comments</h2>
+        <p>
+            <strong>Skipping comments:</strong> In Python, because file iteration handles line endings cleanly, each line ends 
+            with <code>\n</code>, producing uniform termination. Java console inputs or strings depend strictly on length checks.
+        </p>
 
-<p>In Java, unlike Python, we have to explicitly handle <code>\n</code> as part of newline detection. We add <code>\n</code> at the end of the input to simplify EOF detection.</p>
+        <p>
+            This is where Java diverges from Henley's Python implementation. Rather than complicating the lexer loop with 
+            length edge-cases or requiring explicit semicolons, we normalize the input string by appending <code>\n</code> implicitly.
+        </p>
+        <img src="/assets/project1/chp1/5.png" alt="Whitespace and comment skipping logic">
 
-<p>Skipping comments: I imagine in Python, because everything runs as files, each line ends with `\n`, giving us consistent endings in Henley's code. Java is more console-oriented and depends on string length instead.</p>
+        <h2>Helper Functions &amp; Lookahead Refinements</h2>
+        <p>We introduce dedicated helpers to classify alphabetic identifiers, numbers, and operators.</p>
+        <img src="/assets/project1/chp1/6.png" alt="Classifier functions in Java">
 
-<p>This is where we diverge. We could go with length-matching or ask the user to explicitly end lines with something like a semicolon. That would snowball into bigger differences. So instead, I just append `\n` to the string implicitly.</p>
+        <hr>
 
-<img src="/assets/project1/chp1/5.png" alt="Whitespace and comments">
+        <h2>Token Generation Logic</h2>
+        <p>
+            We assemble the core <code>getToken()</code> method. Most of the structure mirrors the Python architecture, 
+            though Java requires explicit string comparison methods and enum instantiation.
+        </p>
+        <img src="/assets/project1/chp1/8.png" alt="Token generation dispatcher">
 
-<h2>Some More Functions and Tiny Optimizations</h2>
-<img src="/assets/project1/chp1/6.png" alt="Small optimizations">
+        <hr>
 
-<hr>
+        <h2>Conclusion</h2>
+        <p>
+            With this, we have completed the first fundamental milestone: a functional lexer that takes source strings, 
+            ignores irrelevant whitespace and comments, and emits a clean stream of classified tokens.
+        </p>
 
-<h2>Token Generation</h2>
-<img src="/assets/project1/chp1/8.png" alt="Token generation logic">
+        <!-- Chapter Navigation Bookmark -->
+        <div class="chapter-nav-box">
+            <a href="/projects/project_1/project1.html" class="chapter-nav-btn">← Series Folio</a>
+            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">VOL. 01 OF 03</span>
+            <a href="/projects/project_1/chapter2.html" class="chapter-nav-btn">Chapter 2: The Pastor →</a>
+        </div>
+    </main>
 
-<p>We’re nearly done — just accommodating digits and a few more things. Most of this is similar to the Python version. But translating from Python to Java requires some syntactic hoop-jumping.</p>
+    <!-- Colophon -->
+    <footer class="colophon-footer">
+        <div>ROHIL.ARCHIVE // SYSTEMS &amp; COMPILERS</div>
+        <div><a href="/index.html" style="color: inherit; text-decoration: none;">Return to Home Shelves ↗</a></div>
+    </footer>
 
-<h2>Final Enum Matching Example</h2>
-<img src="/assets/project1/chp1/8.png" alt="Enum matching">
+</div>
 
-<hr>
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
 
-<h2>Conclusion</h2>
-<p>We’ve built a basic lexer that parses input, detects character types, and maps them to tokens using Enums. That’s the first building block toward a full compiler.</p>
+    function updateThemeUI(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeLabel.textContent = 'DARK';
+            localStorage.setItem('rohil_theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeLabel.textContent = 'LIGHT';
+            localStorage.setItem('rohil_theme', 'light');
+        }
+    }
 
-<p><a href="/projects/project_1/project1.html">← Back to Project</a></p>
-<a href="/index.html">← Back to Home</a>
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeUI(currentTheme);
 
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        updateThemeUI(isDark ? 'light' : 'dark');
+    });
+</script>
 
 </body>
 </html>

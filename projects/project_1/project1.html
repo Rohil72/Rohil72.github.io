@@ -1,32 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="/assets/styles.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tiny Compiler in Java</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tiny Compiler in Java // Series Folio</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('rohil_theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
 </head>
 <body>
 
-<h1>Introduction</h1>
-<p>This is a 3-chapter journey of me making a compiler in Java. I took heavy inspiration from Austin Henley’s project of the same name, only difference being it was done in Python.</p>
+<div class="article-container">
 
-<p>I highly recommend using his article if one wishes to make their own compiler. This article covers the minor nuances and differences in coding in Java and Python, and my commentary as I kept going.</p>
+    <!-- Top Navigation Ribbon -->
+    <nav class="article-ribbon">
+        <a href="/index.html">← RETURN TO SHELF</a>
+        <span class="article-meta-tag">SHELF 01 // SYSTEMS &amp; COMPILERS</span>
+        <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span>THEME:</span> <span id="themeLabel">AUTO</span>
+        </button>
+    </nav>
 
-<p>I feel this project helped me understand a lot about the engine we call compilers and their complexity.</p>
+    <!-- Header -->
+    <header class="article-header">
+        <div class="article-category">SERIES FOLIO // 3 VOLUMES</div>
+        <h1 class="article-title">Tiny Compiler in Java</h1>
+        <p class="article-summary-lead">
+            A three-chapter exploration of building a BASIC-dialect compiler in Java targeting C, 
+            adapted and expanded from Austin Henley's Teeny Tiny Compiler.
+        </p>
+    </header>
 
-<h2>Technical Disclosures</h2>
+    <!-- Content Body -->
+    <main class="article-content">
+        <h2>Introduction</h2>
+        <p>
+            This is a three-chapter journey documenting my experience building a compiler in Java. 
+            I took heavy inspiration from Austin Henley’s seminal project of the same name—the key 
+            distinction being that his was written in Python, while this implementation explores the 
+            nuances, structural guarantees, and verbosity of modern Java.
+        </p>
 
-<p>We implement a language identical to Henley’s — a BASIC syntax language — and we compile our code into C.</p>
+        <p>
+            I highly recommend reading Austin Henley’s original articles for anyone interested in writing their 
+            first compiler. This series serves as an analytical companion: examining the trade-offs of Java's 
+            strict typing, string manipulation differences, and my commentary as the compiler evolved.
+        </p>
 
-<h3>Chapter List</h3>
-<ul>
-	<li><a href="/projects/project_1/chapter1.html">Chapter 1: Lex Luther</a></li>
-	<li><a href="/projects/project_1/chapter2.html">Chapter 2: The Pastor</a></li>
-	<li><a href="/projects/project_1/chapter3.html">Chapter 3: Back to Pointy Land</a></li>
+        <p>
+            Building this project clarified much of the internal engine that powers modern programming languages: 
+            how grammar trees are formed, how tokens are dispatched, and how simple code generation transforms logic 
+            into machine-ready C.
+        </p>
 
-</ul>
+        <h2>Technical Disclosures</h2>
+        <p>
+            We implement a language dialect identical to Henley’s—a BASIC-style syntax—and our compiler 
+            emits C code, which can then be compiled into a native binary via GCC or Clang.
+        </p>
 
- <a href="/index.html">← Back to Home</a>
+        <h2>The Three Chapters</h2>
+
+        <div style="display: flex; flex-direction: column; gap: 16px; margin: 30px 0;">
+            
+            <a href="/projects/project_1/chapter1.html" style="text-decoration: none; color: inherit; display: block;">
+                <div class="panel-block" style="border: 1px solid var(--border); transition: border-color 0.15s ease;">
+                    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-red); font-weight: 700; margin-bottom: 6px;">
+                        CHAPTER 01 // LEXER
+                    </div>
+                    <div style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; margin-bottom: 6px;">
+                        Lex Luther
+                    </div>
+                    <p style="font-family: var(--font-serif); font-size: 15px; color: var(--text-muted); margin-bottom: 8px;">
+                        Breaking raw text input into discrete tokens: token types, Enums in Java, newline heuristics, and peek-ahead lookups.
+                    </p>
+                    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text); display: flex; justify-content: space-between;">
+                        <span>READ TIME: 6 MIN</span>
+                        <span style="color: var(--accent-red);">OPEN CHAPTER 1 →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/projects/project_1/chapter2.html" style="text-decoration: none; color: inherit; display: block;">
+                <div class="panel-block" style="border: 1px solid var(--border); transition: border-color 0.15s ease;">
+                    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-red); font-weight: 700; margin-bottom: 6px;">
+                        CHAPTER 02 // PARSER
+                    </div>
+                    <div style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; margin-bottom: 6px;">
+                        The Pastor
+                    </div>
+                    <p style="font-family: var(--font-serif); font-size: 15px; color: var(--text-muted); margin-bottom: 8px;">
+                        Developing the recursive descent parser class first, validating grammar rules, statement dispatch, and syntax trees.
+                    </p>
+                    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text); display: flex; justify-content: space-between;">
+                        <span>READ TIME: 8 MIN</span>
+                        <span style="color: var(--accent-red);">OPEN CHAPTER 2 →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/projects/project_1/chapter3.html" style="text-decoration: none; color: inherit; display: block;">
+                <div class="panel-block" style="border: 1px solid var(--border); transition: border-color 0.15s ease;">
+                    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-red); font-weight: 700; margin-bottom: 6px;">
+                        CHAPTER 03 // CODE GENERATION
+                    </div>
+                    <div style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; margin-bottom: 6px;">
+                        Back to Pointy Land
+                    </div>
+                    <p style="font-family: var(--font-serif); font-size: 15px; color: var(--text-muted); margin-bottom: 8px;">
+                        Constructing the C emitter using StringBuilder, handling variable state, and producing verifiable executable outputs.
+                    </p>
+                    <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text); display: flex; justify-content: space-between;">
+                        <span>READ TIME: 7 MIN</span>
+                        <span style="color: var(--accent-red);">OPEN CHAPTER 3 →</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <hr>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px;">
+            <a href="/index.html" class="chapter-nav-btn">← Back to Archive Shelves</a>
+            <a href="/projects/project_1/chapter1.html" class="chapter-nav-btn">Begin Chapter 1 →</a>
+        </div>
+    </main>
+
+    <!-- Colophon -->
+    <footer class="colophon-footer">
+        <div>ROHIL.ARCHIVE // SYSTEMS &amp; COMPILERS</div>
+        <div>TYPESET IN SYNE, NEWSREADER &amp; JETBRAINS MONO</div>
+    </footer>
+
+</div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function updateThemeUI(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeLabel.textContent = 'DARK';
+            localStorage.setItem('rohil_theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeLabel.textContent = 'LIGHT';
+            localStorage.setItem('rohil_theme', 'light');
+        }
+    }
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeUI(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        updateThemeUI(isDark ? 'light' : 'dark');
+    });
+</script>
+
 </body>
 </html>

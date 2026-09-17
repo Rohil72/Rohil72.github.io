@@ -1,99 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Chapter 2: The Pastor</title>
-  <link rel="stylesheet" href="/assets/styles.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    main {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      font-family: Georgia, serif;
-      line-height: 1.6;
-    }
-    img {
-      display: block;
-      margin: 20px auto;
-      max-width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    pre {
-      background-color: #f4f4f4;
-      padding: 10px;
-      border-radius: 6px;
-      overflow-x: auto;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 1em;
-    }
-    p {
-      text-align: justify;
-    }
-    a {
-      display: block;
-      margin-top: 2em;
-      text-align: center;
-      text-decoration: none;
-      color: #333;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chapter 2: The Pastor // Tiny Compiler in Java</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('rohil_theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
 </head>
 <body>
 
-<main>
-  <h1>Chapter 2: The Pastor</h1>
+<div class="article-container">
 
-  <p>Instead of making the Main Function in the main file, we will Create the Parser class first. Reason to do so it primarily that I am translating the code here and not knowing the nature of functions called from Parser will cause a lot of trouble.</p>
+    <!-- Top Navigation Ribbon -->
+    <nav class="article-ribbon">
+        <a href="/projects/project_1/chapter1.html">← PREV: CH.1 LEX LUTHER</a>
+        <span class="article-meta-tag">VOL. 02 // CHAPTER 2 OF 3</span>
+        <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span>THEME:</span> <span id="themeLabel">AUTO</span>
+        </button>
+    </nav>
 
-  <p>It feels like walking on tight rope without having the full Understanding of the code (Which is by design of the approach for Parser that Mr. Henley has taken).</p>
+    <!-- Header -->
+    <header class="article-header">
+        <div class="article-category">TINY COMPILER IN JAVA // PART II</div>
+        <h1 class="article-title">Chapter 2: The Pastor</h1>
+        <p class="article-summary-lead">
+            Constructing the recursive descent parser: grammar rules, statement dispatch, Java's HashSet optimizations, 
+            and debugging AST anomalies.
+        </p>
+    </header>
 
-  <img src="/assets/project1/chp2/1.png" alt="Parser class code - image1">
+    <!-- Main Content -->
+    <main class="article-content">
+        <p>
+            Instead of writing the <code>main</code> function in the entry file first, we create the 
+            <code>Parser</code> class ahead of everything else. The reason is pragmatic: because I am translating 
+            Henley's Python code into Java, not knowing the exact signatures and contracts of the parser methods 
+            in advance would lead to constant refactoring friction.
+        </p>
 
-  <p>After a whole bunch of code (till the first test run for printing) we will now write the main function.</p>
+        <p>
+            It feels like walking a tightrope without full forward visibility—an approach inherent to the 
+            top-down recursive descent design Henley chose.
+        </p>
 
-  <p>The input of files can be done in various efficient manners like using args and what not, Here I went with a method for maximising readability.</p>
+        <img src="/assets/project1/chp2/1.png" alt="Parser class architecture in Java">
 
-  <img src="/assets/project1/chp2/2.png" alt="Main function setup - image2">
+        <p>
+            After structuring the initial parser scaffolding up to our first print test run, we write the <code>main</code> driver.
+        </p>
 
-  <p>And naturally the text file here has PRINT "hello, world!". We further can test this with multiple Print Statements as done in Henley's Blog.</p>
+        <p>
+            File ingestion can be handled in many ways (CLI args, scanner buffers, NIO channels). Here, I prioritized 
+            maximum readability.
+        </p>
 
-  <img src="/assets/project1/chp2/3.png" alt="Print statement test - image3">
+        <img src="/assets/project1/chp2/2.png" alt="Main function file input setup">
 
-  <p>Now we will expand on the Statement function more and also the code here is very analogous to Python, Which makes my job easy.</p>
+        <p>
+            Naturally, our test source file contains <code>PRINT "hello, world!"</code>. We verify this across multiple 
+            sequential print statements, matching Henley's test harness.
+        </p>
 
-  <img src="/assets/project1/chp2/4.png" alt="Statement function expansion - image4">
+        <img src="/assets/project1/chp2/3.png" alt="Print statement test run output">
 
-  <p>We also test using the same syntax he does after coding all the statement functions (At this point we are yet to code the comparison and expression function).</p>
+        <hr>
 
-  <p>As I write this I remark that the Python mind cannot fathom our ways of coding and getting around the files without going "CRTL+S CRTL+S" unless they have Autosave or work with Pycharm/VScode.</p>
+        <h2>Statement Dispatch &amp; Syntax Expansion</h2>
 
-  <p>Here on out we get to some theory of how expressions are handled, anyone who has dealt with stack and precedence would know, else it is quite a fun ride to learn.
-  I also wish to know why we are always taking a top down approach, oh he did mention it at the start didn’t he.</p>
+        <p>
+            Now we expand the <code>statement()</code> dispatcher. The syntax flow here translates cleanly from Python 
+            into Java switch-cases, making the port straightforward.
+        </p>
 
-  <p>As we come nearing the end of the Parsing, we use Sets used in the article for GOTO, Labels and symbols Hashset. We get the syntactic advantage that using Sets we don’t have to manually check for Duplicates, it internally handles that.</p>
+        <img src="/assets/project1/chp2/4.png" alt="Statement function implementation">
 
-  <p>We have a unique problem at hand, as we come really at the end and check for:</p>
+        <p>
+            We test using the same syntax Henley uses after implementing the primary statement handlers (at this stage, 
+            we have yet to wire up expressions and comparison operators).
+        </p>
 
-  <pre>PRINT index
-GOTO main</pre>
+        <p>
+            <em>A side remark:</em> The Python mind often cannot fathom our habitual obsession with saving files 
+            and strict compilation cycles—endlessly hammering <kbd>Ctrl+S</kbd> unless relying on automatic IDE save hooks.
+        </p>
 
-  <p>From <a href="https://austinhenley.com/blog/teenytinycompiler2.html" target="_blank">Austin Henley's Blog</a></p>
+        <hr>
 
-  <p>We get the following error:</p>
+        <h2>Expression Parsing &amp; Operator Precedence</h2>
 
-  <img src="/assets/project1/chp2/5.png" alt="PRIMARY index error - image5">
+        <p>
+            From here, we dive into expression grammar. Anyone familiar with stack machines and operator precedence 
+            will feel at home; otherwise, it’s a brilliant conceptual hurdle to climb.
+        </p>
 
-  <p>Here we have an extra term of PRIMARY (index) which is not seen in Henley's Snippet. Logically if the Line "Referencing a …" is mentioned it must have 
-  Passed through the print Statement at the start of the function Primary. I doubt this will have a snowfall effect, but regardless a unique situation.</p>
+        <p>
+            As we approach the end of parsing, we leverage Java's <code>HashSet</code> for managing <code>GOTO</code> 
+            labels, jump targets, and symbol tables. Sets give us an immediate syntactic win: deduplication is handled 
+            natively without writing manual search loops.
+        </p>
 
-<a href="/projects/project_1/project1.html">← Back to Project</a>
- <a href="/index.html">← Back to Home</a>
-</main>
+        <hr>
+
+        <h2>A Subtle Discrepancy</h2>
+
+        <p>At the very end of our test pass, we feed the parser the following snippet:</p>
+
+        <pre><code>PRINT index
+GOTO main</code></pre>
+
+        <p style="font-size: 14px; color: var(--text-muted);">
+            Reference: <a href="https://austinhenley.com/blog/teenytinycompiler2.html" target="_blank" rel="noopener noreferrer">Austin Henley: Teeny Tiny Compiler (Part 2) ↗</a>
+        </p>
+
+        <p>This yields the following output trace:</p>
+
+        <img src="/assets/project1/chp2/5.png" alt="Parser trace showing PRIMARY index output">
+
+        <p>
+            Notice an extra emitted term: <code>PRIMARY (index)</code>, which does not appear in Henley’s Python snippet. 
+            Logically, if the line <em>"Referencing a..."</em> executed, it must have traversed the print statement at the 
+            head of <code>primary()</code>. I doubt this has a cascading downstream effect, but it stands as an intriguing 
+            subtlety of how Java’s control flow interacted with our recursive descent loop.
+        </p>
+
+        <!-- Chapter Navigation Bookmark -->
+        <div class="chapter-nav-box">
+            <a href="/projects/project_1/chapter1.html" class="chapter-nav-btn">← Chapter 1: Lex Luther</a>
+            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">VOL. 02 OF 03</span>
+            <a href="/projects/project_1/chapter3.html" class="chapter-nav-btn">Chapter 3: Pointy Land →</a>
+        </div>
+    </main>
+
+    <!-- Colophon -->
+    <footer class="colophon-footer">
+        <div>ROHIL.ARCHIVE // SYSTEMS &amp; COMPILERS</div>
+        <div><a href="/projects/project_1/project1.html" style="color: inherit; text-decoration: none;">Return to Compiler Folio ↗</a></div>
+    </footer>
+
+</div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function updateThemeUI(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeLabel.textContent = 'DARK';
+            localStorage.setItem('rohil_theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeLabel.textContent = 'LIGHT';
+            localStorage.setItem('rohil_theme', 'light');
+        }
+    }
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeUI(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        updateThemeUI(isDark ? 'light' : 'dark');
+    });
+</script>
 
 </body>
 </html>

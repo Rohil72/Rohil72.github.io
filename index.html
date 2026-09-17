@@ -1,173 +1,365 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Rohil's Blog</title>
-        <link rel="stylesheet" href="/assets/styles.css" />
-        <style>
-            body {
-                font-family: Georgia, serif;
-                max-width: 800px;
-                min-height: 100vh;
-                margin: auto;
-                padding: 2rem;
-                background: #fdfdfd;
-                color: #111;
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rohil's Archive // Systems, Logic & Culture</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <script>
+        // Inline theme initialization to prevent flash
+        (function() {
+            const savedTheme = localStorage.getItem('rohil_theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
             }
+        })();
+    </script>
+</head>
+<body>
 
-            h1 {
-                text-align: center;
-                font-size: 2.5rem;
-                margin-bottom: 1.5rem;
-            }
+<div class="archive-frame">
 
-            .section-header {
-                text-align: center;
-                font-size: 1.8rem;
-                margin-top: 2.5rem;
-                cursor: pointer;
-                user-select: none;
-                border-bottom: 1px solid #ccc;
-                padding-bottom: 0.5rem;
-            }
+    <!-- System Header: Dieter Rams / Braun Registry Bar -->
+    <header class="system-header">
+        <a href="/index.html" class="brand">
+            <span class="led-indicator"></span>
+            <span>ROHIL.ARCHIVE</span>
+        </a>
+        <span class="reg-info">// CATALOG OF COMPUTATION, LOGIC & CULTURE</span>
+        <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle visual theme">
+            <span>THEME:</span>
+            <span id="themeLabel">AUTO</span>
+        </button>
+    </header>
 
-            .section-content {
-                display: none;
-                margin-top: 1rem;
-                font-size: 1.1rem;
-            }
+    <!-- Main Asymmetrical Grid -->
+    <main class="asymmetric-grid">
 
-            ul {
-                padding-left: 1.5rem;
-            }
+        <!-- ==========================================================
+             LEFT ANCHOR: THE STUDY (Bay A)
+             ========================================================== -->
+        <aside class="bay-study">
 
-            a {
-                color: #007acc;
-                text-decoration: none;
-            }
-
-            a:hover {
-                text-decoration: underline;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Rohil's Blog</h1>
-        <p style="text-align: center">
-            This is my Personal Blog, I here discuss my projects, Art and Unique
-            Problems in Math and Logic I find lying around. Aside from a Proof
-            of Activity it also doubles as a tracker.
-        </p>
-
-        <div class="section">
-            <div class="section-header" onclick="toggleSection('projects')">
-                Projects
-            </div>
-            <div id="projects" class="section-content">
-                <p>
-                    Here below is the list of my Projects which usually involve
-                    Programming, Experimenting with Machine Learning and Models
-                    I Build.
+            <!-- Identifier Panel -->
+            <div class="panel-block">
+                <div class="panel-header-tag">01 ARCHIVE IDENTIFIER</div>
+                <h1 class="study-name">ROHIL</h1>
+                <div class="study-role">PROGRAMMER // SYSTEMS &amp; LOGIC</div>
+                <p class="study-bio">
+                    Personal workspace and digital repository. Here I document compiler construction, 
+                    discrete mathematical inquiries, and cultural reflections on literature, cinema, and art.
                 </p>
-                <ul>
-                    <li>
-                        <a href="/projects/project_1/project1.html"
-                            >Tiny Compiler in Java</a
-                        >
+                <div class="manifesto-quote">
+                    “Art is the story to what we call History.”
+                    <br><span style="font-size: 12px; font-style: normal; opacity: 0.8;">— Leo Tolstoy</span>
+                </div>
+            </div>
+
+            <!-- Coordinates Panel -->
+            <div class="panel-block">
+                <div class="panel-header-tag">02 COORDINATES</div>
+                <ul class="coord-list">
+                    <li class="coord-item">
+                        <span>GITHUB</span>
+                        <a href="https://github.com/Rohil72" target="_blank" rel="noopener noreferrer">@Rohil72 ↗</a>
                     </li>
-                    <li>
-                        <a href="/projects/project2.html"
-                            >Project 2(Currently Working on)</a
-                        >
+                    <li class="coord-item">
+                        <span>DISPATCH</span>
+                        <a href="mailto:Rohil.wrk@gmail.com">Rohil.wrk@gmail.com ↗</a>
+                    </li>
+                    <li class="coord-item">
+                        <span>STATE</span>
+                        <span style="color: var(--accent-sage); font-weight: 700;">ACTIVE // 2026</span>
                     </li>
                 </ul>
             </div>
-        </div>
 
-        <div class="section">
-            <div class="section-header" onclick="toggleSection('problems')">
-                Problems
+            <!-- Cultural Shelf Panel -->
+            <div class="panel-block">
+                <div class="panel-header-tag">03 CULTURAL SHELF (CURATIONS)</div>
+                <div class="curation-shelf">
+                    <div class="curation-item">
+                        <span class="curation-tag">CINEMA &amp; TV</span>
+                        <div class="curation-desc">Classic Sci-Fi, <i>True Detective</i> (S1), <i>Drops of God</i>, <i>Pluribus</i></div>
+                    </div>
+                    <div class="curation-item">
+                        <span class="curation-tag">BOOKS</span>
+                        <div class="curation-desc"><i>Count Zero</i> (William Gibson), <i>Thus Spoke Zarathustra</i> (Friedrich Nietzsche)</div>
+                    </div>
+                    <div class="curation-item">
+                        <span class="curation-tag">MANGA &amp; ANIME</span>
+                        <div class="curation-desc">Tsutomu Nihei (<i>BLAME!</i>), Kotteri, <i>Blue Period</i>, <i>Serial Experiments Lain</i></div>
+                    </div>
+                    <div class="curation-item">
+                        <span class="curation-tag">FINE ART &amp; SOUND</span>
+                        <div class="curation-desc">M.C. Escher, Caspar David Friedrich // Underground Techno &amp; Hip-Hop</div>
+                    </div>
+                </div>
+                <p style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); margin-top: 14px;">
+                    * Full critical reviews &amp; retrospective essays currently being added to Shelf 03.
+                </p>
             </div>
-            <div id="problems" class="section-content">
-                <p>
-                    Here I list out problems in Math and Logic I stumble upon
-                    and find worth Mentioning. Work in progress
-                </p>
 
-                    <li>
-                        <a href="problems/Problem_1/problem1.html"
-                            >Unique Clothes Problem</a
-                        >
-                    </li>
-                </ul>
+        </aside>
+
+        <!-- ==========================================================
+             RIGHT BAY: THE ARCHITECTURAL SHELVES (Bay B)
+             ========================================================== -->
+        <section class="bay-shelves">
+
+            <!-- ------------------------------------------------------
+                 SHELF 01: SYSTEMS & COMPILERS
+                 ------------------------------------------------------ -->
+            <div class="shelf-unit">
+                <div class="shelf-caption">
+                    <h2 class="shelf-title">SHELF 01 // SYSTEMS &amp; COMPILERS</h2>
+                    <span class="shelf-num">3-VOL BOX SET</span>
+                </div>
+
+                <div class="shelf-books-row">
+                    
+                    <!-- Slipcase for Tiny Compiler Series -->
+                    <div class="slipcase-box">
+                        <span class="slipcase-label">TINY COMPILER IN JAVA (BOX SET)</span>
+
+                        <!-- Volume 1: Lexer -->
+                        <a href="/projects/project_1/chapter1.html" class="book-spine spine-theme-compiler spine-h-tall" aria-label="Chapter 1: Lex Luther">
+                            <div class="spine-head">VOL.01</div>
+                            <div class="spine-accent-dot"></div>
+                            <div class="spine-title">LEX LUTHER</div>
+                            <div class="spine-foot">CH.1</div>
+                            <div class="spine-tooltip">
+                                <div class="tooltip-vol">VOL. 01 // CHAPTER 1</div>
+                                <div class="tooltip-title">Lex Luther</div>
+                                <div class="tooltip-desc">Building the tokenizer, TokenType enum, newline detection, and lexical scanning.</div>
+                                <div class="tooltip-meta">
+                                    <span>READ TIME: 6 MIN</span>
+                                    <span style="color: var(--accent-red);">CLICK TO READ →</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Volume 2: Parser -->
+                        <a href="/projects/project_1/chapter2.html" class="book-spine spine-theme-compiler spine-h-tall" aria-label="Chapter 2: The Pastor">
+                            <div class="spine-head">VOL.02</div>
+                            <div class="spine-accent-dot"></div>
+                            <div class="spine-title">THE PASTOR</div>
+                            <div class="spine-foot">CH.2</div>
+                            <div class="spine-tooltip">
+                                <div class="tooltip-vol">VOL. 02 // CHAPTER 2</div>
+                                <div class="tooltip-title">The Pastor</div>
+                                <div class="tooltip-desc">Constructing the Parser class first, grammar rules, statement dispatch, and syntax verification.</div>
+                                <div class="tooltip-meta">
+                                    <span>READ TIME: 8 MIN</span>
+                                    <span style="color: var(--accent-red);">CLICK TO READ →</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Volume 3: Emitter -->
+                        <a href="/projects/project_1/chapter3.html" class="book-spine spine-theme-compiler spine-h-tall" aria-label="Chapter 3: Back to Pointy Land">
+                            <div class="spine-head">VOL.03</div>
+                            <div class="spine-accent-dot"></div>
+                            <div class="spine-title">POINTY LAND</div>
+                            <div class="spine-foot">CH.3</div>
+                            <div class="spine-tooltip">
+                                <div class="tooltip-vol">VOL. 03 // CHAPTER 3</div>
+                                <div class="tooltip-title">Back to Pointy Land</div>
+                                <div class="tooltip-desc">Building the C emitter using Java's StringBuilder, compiling down to executable C code.</div>
+                                <div class="tooltip-meta">
+                                    <span>READ TIME: 7 MIN</span>
+                                    <span style="color: var(--accent-red);">CLICK TO READ →</span>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <!-- Project Index Spine -->
+                    <a href="/projects/project_1/project1.html" class="book-spine spine-theme-compiler spine-h-short" aria-label="Compiler Project Index">
+                        <div class="spine-head">INDEX</div>
+                        <div class="spine-title" style="font-size: 11px;">COMPILER INTRO</div>
+                        <div class="spine-foot">FOLIO</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">PROJECT OVERVIEW</div>
+                            <div class="tooltip-title">Tiny Compiler in Java</div>
+                            <div class="tooltip-desc">Full 3-chapter roadmap, inspiration from Austin Henley, and technical disclosures.</div>
+                            <div class="tooltip-meta">
+                                <span>3 CHAPTERS</span>
+                                <span style="color: var(--accent-red);">OPEN FOLIO →</span>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="shelf-meta-bar">
+                    <span>TRANSLATING FROM PYTHON TO JAVA // TARGET EMITTER: C</span>
+                    <a href="/projects/project_1/project1.html">Explore Series Folio →</a>
+                </div>
             </div>
-        </div>
 
-        <div class="section">
-            <div class="section-header" onclick="toggleSection('art')">Art</div>
-            <div id="art" class="section-content">
-                <p>
-                    Here I have Essays/Articles on pieces of Art which invoke
-                    Emotion in me. I have found what represents Art to me is in
-                    the same sense Tolstoy defines it and I strongly also
-                    believe Art is the story to what we call History. Someday
-                    I'll Add pieces I created.
-                </p>
-                <p>
-                    I have a long list of Artists and Art works I love and
-                    cherish. Here are a few names off the top of my head.
-                </p>
-                <p>
-                    I have a love for many mediums of Art including but not
-                    limited to(Updated Dec 2025):
-                </p>
-                <ul>
-                    <li>
-                        <b>Cinema:</b> Recently into a re-watching old classics
-                        and Sci-Fic
-                    </li>
-                    <li><b>TV</b>Watch True Detective Season, I loved it so much..The rest are common but i recently enjoyed Drops of God and Pluribus</li>
-                    <li>
-                        <b>Books:</b> Currently juggling <i>Count Zero</i> by
-                        Gibson and <i>The spoke Zarathustra</i> by Nietzsche
-                    </li>
-                    <li>
-                        <b>Manga:</b> Enjoy works by Kotteri, Nihei, Yamaguchi
-                        (Blue Period)
-                    </li>
-                    <li>
-                        <b>Anime:</b> Recently watched
-                        <i>Serial Experiments Lain</i> – wild!
-                    </li>
-                    <li>
-                        <b>Fine Art:</b> Recently into the works of M.C. Escher
-                        and the Life of Caspar David Friedrich
-                    </li>
-                    <li>
-                        <b>Music:</b> It is a big spectrum of Techno and Hip-Hop
-                        Lately
-                    </li>
-                </ul>
+            <!-- ------------------------------------------------------
+                 SHELF 02: DISCRETE LOGIC & MATHEMATICAL PUZZLES
+                 ------------------------------------------------------ -->
+            <div class="shelf-unit">
+                <div class="shelf-caption">
+                    <h2 class="shelf-title">SHELF 02 // DISCRETE LOGIC &amp; PUZZLES</h2>
+                    <span class="shelf-num">1 MONOGRAPH // 1 ALLOCATED</span>
+                </div>
+
+                <div class="shelf-books-row">
+                    
+                    <!-- Volume 04: Minimal Wardrobe Problem -->
+                    <a href="/problems/Problem_1/problem1.html" class="book-spine spine-theme-logic spine-h-med" aria-label="The Minimal Wardrobe Problem">
+                        <div class="spine-head">VOL.04</div>
+                        <div class="spine-accent-dot" style="background-color: var(--accent-blue);"></div>
+                        <div class="spine-title">MINIMAL WARDROBE</div>
+                        <div class="spine-foot">MATH</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">VOL. 04 // MONOGRAPH</div>
+                            <div class="tooltip-title">The Minimal Wardrobe Problem</div>
+                            <div class="tooltip-desc">How many articles of clothing do you need to avoid repeating an outfit for 365 days? Deconstructing combinations from constraints.</div>
+                            <div class="tooltip-meta">
+                                <span>READ TIME: 5 MIN</span>
+                                <span style="color: var(--accent-red);">CLICK TO READ →</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Reserved Slot for Problem 2 -->
+                    <div class="book-spine spine-theme-reserved spine-h-med" aria-label="Reserved Slot: Problem 02">
+                        <div class="spine-head">VOL.05</div>
+                        <div class="spine-title" style="letter-spacing: 0.1em;">RESERVED</div>
+                        <div class="spine-foot">SLOT</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">RESERVED ALLOCATION</div>
+                            <div class="tooltip-title">Problem 02 (In Progress)</div>
+                            <div class="tooltip-desc">New puzzle investigation in graph theory and combinatorial game states.</div>
+                            <div class="tooltip-meta">
+                                <span>STATUS: DRAFT</span>
+                                <span>COMING SOON</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="shelf-meta-bar">
+                    <span>COMBINATORICS, CONSTRAINT REASONING &amp; FORMAL MODELING</span>
+                    <span>2 SLOTS ACTIVE</span>
+                </div>
             </div>
-        </div>
 
-        <script>
-            function toggleSection(id) {
-                const section = document.getElementById(id);
-                const isVisible = section.style.display === "block";
-                section.style.display = isVisible ? "none" : "block";
-            }
-        </script>
+            <!-- ------------------------------------------------------
+                 SHELF 03: ESSAYS, REVIEWS & CRITICISM
+                 ------------------------------------------------------ -->
+            <div class="shelf-unit">
+                <div class="shelf-caption">
+                    <h2 class="shelf-title">SHELF 03 // ESSAYS &amp; CULTURAL CRITICISM</h2>
+                    <span class="shelf-num">REVIEWS IN PREPARATION</span>
+                </div>
 
-        <footer
-            style="padding: 20px; text-align: center; background-color: #f2f2f2"
-        >
-            <p>Contact Me</p>
-            <p>Email: <a>Rohil.wrk@gmail.com</a></p>
-            <p>
-                GitHub:
-                <a href="https://github.com/Rohil72" target="_blank">Rohil72</a>
-            </p>
-        </footer>
-    </body>
+                <div class="shelf-books-row">
+                    
+                    <!-- Volume 06: Tolstoy & Gibson Essay -->
+                    <div class="book-spine spine-theme-art spine-h-tall" style="cursor: pointer;" onclick="alert('Essay in final editing. Full article publishing soon!');">
+                        <div class="spine-head">VOL.06</div>
+                        <div class="spine-accent-dot" style="background-color: var(--accent-ochre);"></div>
+                        <div class="spine-title">TOLSTOY &amp; CYBERPUNK</div>
+                        <div class="spine-foot">ESSAY</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">VOL. 06 // CRITIQUE</div>
+                            <div class="tooltip-title">On Tolstoy's Art &amp; Sprawl Fiction</div>
+                            <div class="tooltip-desc">Reconciling Tolstoy's definition of artistic emotional transmission with William Gibson's Count Zero and cyberspace.</div>
+                            <div class="tooltip-meta">
+                                <span>STATUS: DRAFT</span>
+                                <span style="color: var(--accent-ochre);">PUBLISHING SOON</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Volume 07: Lain Essay -->
+                    <div class="book-spine spine-theme-art spine-h-med" style="cursor: pointer;" onclick="alert('Review in final editing. Full article publishing soon!');">
+                        <div class="spine-head">VOL.07</div>
+                        <div class="spine-accent-dot" style="background-color: var(--accent-ochre);"></div>
+                        <div class="spine-title">WIRED MEMORY</div>
+                        <div class="spine-foot">ANIME</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">VOL. 07 // RETROSPECTIVE</div>
+                            <div class="tooltip-title">Serial Experiments Lain: The Physical &amp; The Wired</div>
+                            <div class="tooltip-desc">A deep dive into 90s cyber-animism, consciousness, and omnipresent computation.</div>
+                            <div class="tooltip-meta">
+                                <span>STATUS: DRAFT</span>
+                                <span style="color: var(--accent-ochre);">PUBLISHING SOON</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reserved Cinema Review Slot -->
+                    <div class="book-spine spine-theme-reserved spine-h-short">
+                        <div class="spine-head">VOL.08</div>
+                        <div class="spine-title">CINEMA SHELF</div>
+                        <div class="spine-foot">FILM</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">INCOMING REVIEW</div>
+                            <div class="tooltip-title">Classic Sci-Fi &amp; Framing</div>
+                            <div class="tooltip-desc">Visual composition and narrative architecture in seminal cinema.</div>
+                            <div class="tooltip-meta">
+                                <span>STATUS: QUEUED</span>
+                                <span>RESERVED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="shelf-meta-bar">
+                    <span>LITERATURE, CINEMA, ANIME &amp; PHILOSOPHIC CRITIQUE</span>
+                    <span>EXPANDING SHELF</span>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- System Colophon Footer -->
+    <footer class="colophon-footer">
+        <div>ROHIL.ARCHIVE // ARCHITECTURAL BOOKSHELF INTERFACE // WENIGER, ABER BESSER</div>
+        <div>TYPESET IN SYNE, NEWSREADER &amp; JETBRAINS MONO // HOSTED ON GITHUB PAGES</div>
+    </footer>
+
+</div>
+
+<!-- Interactive Theme Switcher Logic -->
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function updateThemeUI(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeLabel.textContent = 'DARK';
+            localStorage.setItem('rohil_theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeLabel.textContent = 'LIGHT';
+            localStorage.setItem('rohil_theme', 'light');
+        }
+    }
+
+    // Initialize UI button state
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeUI(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        updateThemeUI(isDark ? 'light' : 'dark');
+    });
+</script>
+
+</body>
 </html>
