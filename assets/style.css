@@ -7,31 +7,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Outfit:wght@300;400;500;600&display=swap');
 
 :root {
-  /* Monet Linen & Friedrich Dawn Palette (Light Mode) */
-  --bg: #F8F6F0;                /* Warm antique paper / linen */
-  --surface: #FFFFFF;
-  --surface-alt: #F1ECE1;        /* Soft morning stone */
-  --surface-hover: #ECE6D9;
-  --text: #22201D;              /* Deep romantic charcoal ink */
-  --text-muted: #6C665D;        /* Warm graphite */
-  --border: #DED7C8;            /* Delicate vellum rule */
-  --border-strong: #22201D;
+  /* Claude Monet Light Palette (from color.adobe swatch) */
+  --bg: #FCFAFD;                /* Ethereal Monet soft morning canvas (#FCFAFD) */
+  --surface: #FFFFFF;           /* Pure white surface cards (#FFFFFF) */
+  --surface-alt: #F4F0F7;        /* Soft atmospheric wash */
+  --surface-hover: #ECE6F2;
+  --text: #222026;              /* Deep charcoal ink */
+  --text-muted: #6A6672;        /* Soft slate pencil */
+  --border: #E4DEEB;            /* Gentle painterly border */
+  --border-strong: #222026;
 
-  /* Atmospheric Classical Accents */
-  --accent-gold: #B88B38;       /* Gilded leaf foil */
-  --accent-wine: #872E38;       /* Friedrich madder lake / burgundy */
-  --accent-dusk: #2B4257;       /* Monet waterlily dusk blue */
-  --accent-sage: #455C4F;       /* Willow sage */
+  /* Monet Palette Accents */
+  --monet-sunlight: #F8E4A5;    /* Monet sunlight pastel gold (#F8E4A5) */
+  --monet-water: #52A6D4;       /* Monet waterlily azure blue (#52A6D4) */
+  --monet-garden: #789557;      /* Monet fresh garden green (#789557) */
+
+  --accent-gold: #C99630;       /* Legible warm gold */
+  --accent-wine: #438CB6;       /* Monet water blue for links */
+  --accent-dusk: #52A6D4;       /* Waterlily blue */
+  --accent-sage: #789557;       /* Fresh Monet garden foliage (replaces ugly dark green) */
 
   /* Clothbound Spine Tones */
-  --spine-compiler: #1C2430;     /* Prussian night cloth */
-  --spine-compiler-text: #F5F2EB;
-  --spine-logic: #58242A;        /* Crimson morocco leather */
-  --spine-logic-text: #F8F4EE;
-  --spine-art: #22332B;          /* Deep forest buckram */
-  --spine-art-text: #F1F5F2;
-  --spine-reserved: #E5DFD1;     /* Unbound manuscript */
-  --spine-reserved-text: #827C70;
+  --spine-compiler: #202736;     /* Deep indigo cloth */
+  --spine-compiler-text: #FCFAFD;
+  --spine-logic: #3B7293;        /* Monet waterlily blue cloth */
+  --spine-logic-text: #FCFAFD;
+  --spine-art: #5F7D43;          /* Fresh Monet garden green cloth */
+  --spine-art-text: #FCFAFD;
+  --spine-reserved: #EFEBF4;     /* Soft canvas manuscript */
+  --spine-reserved-text: #8A8394;
 
   /* Typography Scale */
   --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -129,7 +133,7 @@ body {
 }
 
 .brand-ornament {
-  color: var(--accent-gold);
+  color: var(--monet-water);
   font-size: 1rem;
 }
 
@@ -302,7 +306,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent-gold);
+  color: var(--monet-garden);
   display: block;
   margin-bottom: 3px;
 }
@@ -330,6 +334,7 @@ body {
   box-shadow: var(--shadow-flat);
   border-radius: var(--radius);
   position: relative;
+  overflow: visible;
 }
 
 .shelf-caption {
@@ -361,11 +366,11 @@ body {
   display: flex;
   align-items: flex-end;
   gap: 14px;
-  overflow-x: auto;
+  overflow: visible;
   padding-bottom: 6px;
-  padding-top: 22px;
+  padding-top: 30px;
   /* Stately wooden library shelf border */
-  border-bottom: 5px solid var(--border-strong);
+  border-bottom: 4px solid var(--border-strong);
   position: relative;
 }
 
@@ -431,15 +436,15 @@ body {
   border-radius: 2px 2px 0 0;
   box-shadow: 1px 0px 3px rgba(0,0,0,0.18), -1px 0px 3px rgba(0,0,0,0.12);
   flex-shrink: 0;
-  /* Delicate gold-leaf foil line on top of spine */
-  border-top: 2px solid rgba(212, 175, 55, 0.35);
-  border-bottom: 2px solid rgba(212, 175, 55, 0.25);
+  /* Delicate Monet sunlight line on top of spine */
+  border-top: 2px solid var(--monet-sunlight);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
 }
 
 .book-spine:hover {
   transform: translateY(-12px);
   box-shadow: 0 16px 24px var(--shadow-shelf);
-  border-top-color: var(--accent-gold);
+  border-top-color: var(--monet-water);
   z-index: 10;
 }
 
@@ -523,20 +528,20 @@ body {
 /* Floating Book Peek Card */
 .book-spine .spine-tooltip {
   position: absolute;
-  bottom: calc(100% + 14px);
+  bottom: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%) translateY(4px);
-  width: 230px;
+  width: 220px;
   background: var(--surface);
   color: var(--text);
-  border: 1px solid var(--border-strong);
-  padding: 14px;
+  border: 1px solid var(--border);
+  padding: 12px 14px;
   font-family: var(--font-serif);
-  box-shadow: var(--shadow-shelf);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.18s ease, transform 0.18s ease;
-  z-index: 50;
+  z-index: 100;
   text-align: left;
   border-radius: var(--radius);
 }
