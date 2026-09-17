@@ -137,6 +137,38 @@ body {
   font-size: 1rem;
 }
 
+/* Header Aisle Quick Navigation */
+.header-aisle-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header-aisle-link {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text-muted);
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-alt);
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.header-aisle-link:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.header-aisle-link.active {
+  color: #FFFFFF;
+  background: var(--monet-water);
+  border-color: var(--monet-water);
+}
+
 .system-header .reg-info {
   color: var(--text-muted);
   font-style: italic;
@@ -145,7 +177,7 @@ body {
   display: none;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 860px) {
   .system-header .reg-info {
     display: inline-block;
   }
@@ -174,18 +206,42 @@ body {
 
 /* ==========================================================================
    ASYMMETRICAL LIBRARY LAYOUT (THE STUDY + THE SHELVES)
+   Mobile High-Intent Ordering: Profile -> Shelves -> Annex
    ========================================================================== */
 .asymmetric-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
+  grid-template-areas:
+    "profile"
+    "shelves"
+    "annex";
+  gap: 28px;
   align-items: start;
 }
 
 @media (min-width: 920px) {
   .asymmetric-grid {
     grid-template-columns: 340px 1fr;
+    grid-template-areas:
+      "profile shelves"
+      "annex   shelves";
+    gap: 32px;
   }
+}
+
+.bay-study-profile {
+  grid-area: profile;
+}
+
+.bay-shelves {
+  grid-area: shelves;
+}
+
+.bay-study-annex {
+  grid-area: annex;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 /* Left Column: THE STUDY */
@@ -609,6 +665,45 @@ body {
 .shelf-meta-bar a:hover {
   text-decoration: underline;
   color: var(--accent-wine);
+}
+
+/* Shelf Quick Index (Phone & Handheld Chapter Links) */
+.shelf-quick-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 0 16px 0;
+  border-top: 1px dashed var(--border);
+}
+
+.quick-chapter-pill {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quick-chapter-pill:hover,
+.quick-chapter-pill:active {
+  background: var(--surface-hover);
+  border-color: var(--monet-water);
+  color: var(--monet-water);
+}
+
+.quick-chapter-pill .pill-meta {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 11.5px;
 }
 
 /* ==========================================================================
@@ -1168,6 +1263,19 @@ body {
     scroll-snap-align: start;
   }
 
+  .aisle-central-guide {
+    flex-direction: column;
+    gap: 6px;
+    font-size: 11px;
+    padding: 8px 10px;
+    text-align: center;
+  }
+
+  .aisle-central-guide .floor-arrow-indicator {
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+
   .study-name {
     font-size: 1.95rem;
   }
@@ -1200,13 +1308,20 @@ body {
 
 @media (max-width: 480px) {
   .system-header {
-    padding: 10px 12px;
+    padding: 10px 14px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .system-header .brand {
     font-size: 1.15rem;
     gap: 6px;
+  }
+
+  .header-aisle-link {
+    font-size: 11px;
+    padding: 3px 7px;
   }
 
   .theme-toggle-btn {
@@ -1245,6 +1360,17 @@ body {
 
   .aisle-main-name {
     font-size: 1.25rem;
+  }
+
+  .floor-path-preview {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .floor-dots-line {
+    display: none;
   }
 
   .aisle-banner {
