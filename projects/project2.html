@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project 02 // Workbench</title>
+    <title>Project II — The Workbench</title>
     <link rel="stylesheet" href="/assets/style.css">
     <script>
         (function() {
@@ -21,38 +21,40 @@
 <div class="article-container">
 
     <nav class="article-ribbon">
-        <a href="/index.html">← RETURN TO SHELF</a>
-        <span class="article-meta-tag">WORKBENCH // STATUS: IN DEVELOPMENT</span>
+        <a href="/index.html">← Return to Library</a>
+        <span class="article-meta-tag">The Workbench · In Development</span>
         <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle theme">
-            <span>THEME:</span> <span id="themeLabel">AUTO</span>
+            <span>Theme:</span> <span id="themeLabel">Light</span>
         </button>
     </nav>
 
     <header class="article-header">
-        <div class="article-category">ACTIVE WORKBENCH // VOL. 05</div>
-        <h1 class="article-title">Project 02</h1>
+        <div class="article-category">Active Workbench · Volume V</div>
+        <h1 class="article-title">Project II</h1>
         <p class="article-summary-lead">
-            Machine learning experiments and architectural model exploration. Active code in progress.
+            Machine learning experiments and architectural model explorations. Active code in progress.
         </p>
     </header>
 
     <main class="article-content">
-        <div class="panel-block" style="border-left: 3px solid var(--accent-red); margin: 30px 0;">
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-red); margin-bottom: 6px;">STATE: ACTIVE REFACTOR</div>
+        <div class="panel-block" style="border-left: 3px solid var(--accent-wine); margin: 30px 0;">
+            <div style="font-family: var(--font-display); font-size: 12px; color: var(--accent-gold); text-transform: uppercase; margin-bottom: 6px;">
+                State: Active Refactor
+            </div>
             <p style="font-family: var(--font-serif); font-size: 17px; margin-bottom: 0;">
-                This project is actively under construction and testing. The full technical write-up, benchmarks, 
-                and GitHub repository links will be published directly to Shelf 01 upon completion.
+                This project is actively under construction and testing. The full technical essay, benchmarks, 
+                and repository links will be cataloged directly upon Shelf I upon completion.
             </p>
         </div>
 
         <div style="margin-top: 40px;">
-            <a href="/index.html" class="chapter-nav-btn">← Return to Archive Shelves</a>
+            <a href="/index.html" class="chapter-nav-btn">← Return to Library Shelves</a>
         </div>
     </main>
 
     <footer class="colophon-footer">
-        <div>ROHIL.ARCHIVE // WORKBENCH</div>
-        <div>TYPESET IN SYNE, NEWSREADER &amp; JETBRAINS MONO</div>
+        <div>Rohil's Library · The Workbench</div>
+        <div>Typeset in Cormorant Garamond &amp; Newsreader</div>
     </footer>
 
 </div>
@@ -64,11 +66,11 @@
     function updateThemeUI(theme) {
         if (theme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
-            themeLabel.textContent = 'DARK';
+            themeLabel.textContent = 'Dark';
             localStorage.setItem('rohil_theme', 'dark');
         } else {
             document.documentElement.removeAttribute('data-theme');
-            themeLabel.textContent = 'LIGHT';
+            themeLabel.textContent = 'Light';
             localStorage.setItem('rohil_theme', 'light');
         }
     }

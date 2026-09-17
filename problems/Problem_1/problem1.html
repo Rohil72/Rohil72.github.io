@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Minimal Wardrobe Problem // Discrete Logic</title>
+    <title>The Minimal Wardrobe Problem — Discrete Logic</title>
     <link rel="stylesheet" href="/assets/style.css">
     <script>
         (function() {
@@ -22,16 +22,16 @@
 
     <!-- Top Navigation Ribbon -->
     <nav class="article-ribbon">
-        <a href="/index.html">← RETURN TO ARCHIVE</a>
-        <span class="article-meta-tag">SHELF 02 // VOL. 04: DISCRETE LOGIC</span>
+        <a href="/index.html">← Return to Library</a>
+        <span class="article-meta-tag">Shelf II · Puzzles &amp; Discrete Logic</span>
         <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle theme">
-            <span>THEME:</span> <span id="themeLabel">AUTO</span>
+            <span>Theme:</span> <span id="themeLabel">Light</span>
         </button>
     </nav>
 
     <!-- Header -->
     <header class="article-header">
-        <div class="article-category">MONOGRAPH // COMBINATORICS &amp; CONSTRAINTS</div>
+        <div class="article-category">Monograph · Combinatorics &amp; Constraints</div>
         <h1 class="article-title">The Minimal Wardrobe Problem</h1>
         <p class="article-summary-lead">
             How many articles of clothing do you actually need to avoid repeating an outfit for an entire year? 
@@ -194,16 +194,16 @@
 
         <!-- Chapter Navigation Bookmark -->
         <div class="chapter-nav-box">
-            <a href="/index.html" class="chapter-nav-btn">← Return to Shelf 02</a>
-            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);">VOL. 04 // COMPLETE</span>
-            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--accent-sage);">NEXT: PROBLEM 02 [IN DRAFT]</span>
+            <a href="/index.html" class="chapter-nav-btn">← Return to Shelf II</a>
+            <span style="font-family: var(--font-serif); font-style: italic; font-size: 13.5px; color: var(--text-muted);">Volume IV · Complete</span>
+            <span style="font-family: var(--font-serif); font-style: italic; font-size: 13.5px; color: var(--accent-sage);">Next: Problem II (In Preparation)</span>
         </div>
     </main>
 
     <!-- Colophon -->
     <footer class="colophon-footer">
-        <div>ROHIL.ARCHIVE // DISCRETE LOGIC &amp; PUZZLES</div>
-        <div>TYPESET IN SYNE, NEWSREADER &amp; JETBRAINS MONO</div>
+        <div>Rohil's Library · Shelf II: Puzzles &amp; Discrete Logic</div>
+        <div>Typeset in Cormorant Garamond &amp; Newsreader</div>
     </footer>
 
 </div>
@@ -215,11 +215,11 @@
     function updateThemeUI(theme) {
         if (theme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
-            themeLabel.textContent = 'DARK';
+            themeLabel.textContent = 'Dark';
             localStorage.setItem('rohil_theme', 'dark');
         } else {
             document.documentElement.removeAttribute('data-theme');
-            themeLabel.textContent = 'LIGHT';
+            themeLabel.textContent = 'Light';
             localStorage.setItem('rohil_theme', 'light');
         }
     }
