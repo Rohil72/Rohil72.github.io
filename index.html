@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Rohil's Library — Systems, Logic &amp; Thought</title>
-    <link rel="stylesheet" href="/assets/style.css?v=5">
+    <link rel="stylesheet" href="/assets/style.css?v=6">
     <script>
         (function() {
             const savedTheme = localStorage.getItem('rohil_theme');
@@ -26,7 +26,7 @@
             <span class="brand-ornament">✦</span>
             <span>Rohil's Library</span>
         </a>
-        <span class="reg-info">Projects, Problems &amp; Art</span>
+        <span class="reg-info">Main Hall &amp; Floor Directory</span>
         <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle visual theme">
             <span>Theme:</span>
             <span id="themeLabel">Light</span>
@@ -47,7 +47,7 @@
                 <h1 class="study-name">Rohil</h1>
                 <div class="study-role">Programmer</div>
                 <p class="study-bio">
-                    This is my personal blog where I discuss my projects in programming and machine learning, 
+                    This is my personal digital library where I document projects in programming and machine learning, 
                     art that invokes emotion in me, and unique problems in math and logic I find lying around.
                 </p>
                 <div class="manifesto-quote">
@@ -69,8 +69,8 @@
                         <a href="mailto:Rohil.wrk@gmail.com">Rohil.wrk@gmail.com ↗</a>
                     </li>
                     <li class="coord-item">
-                        <span>State</span>
-                        <span style="color: var(--accent-sage); font-style: italic;">Active Collection · 2026</span>
+                        <span>Collection</span>
+                        <span style="color: var(--accent-sage); font-style: italic;">Active Archive · 2026</span>
                     </li>
                 </ul>
             </div>
@@ -81,7 +81,7 @@
                 <div class="curation-shelf">
                     <div class="curation-item">
                         <span class="curation-tag">Cinema &amp; Television</span>
-                        <div class="curation-desc">Classic Sci-Fi, <i>True Detective</i> (Season 1), <i>Drops of God</i>, <i>Pluribus</i></div>
+                        <div class="curation-desc">Classic Sci-Fi, <i>True Detective</i> (S1), <i>Drops of God</i>, <i>Pluribus</i></div>
                     </div>
                     <div class="curation-item">
                         <span class="curation-tag">Literature &amp; Philosophy</span>
@@ -97,233 +97,118 @@
                     </div>
                 </div>
                 <p style="font-size: 13.5px; font-style: italic; color: var(--text-muted); margin-top: 14px;">
-                    * Critical reviews &amp; retrospective essays currently in preparation for Shelf III.
+                    * Critical essays cataloged in <a href="/salon.html" style="color: var(--accent-wine); text-decoration: underline;">Aisle III: The Salon →</a>
                 </p>
             </div>
 
         </aside>
 
         <!-- ==========================================================
-             RIGHT COLUMN: THE BOOKSHELVES (Bay B)
+             RIGHT COLUMN: THE FLOOR DIRECTORY & AISLE WAYFINDING (Bay B)
              ========================================================== -->
         <section class="bay-shelves">
 
-            <!-- ------------------------------------------------------
-                 SHELF I: SYSTEMS & COMPILERS
-                 ------------------------------------------------------ -->
-            <div class="shelf-unit">
-                <div class="shelf-caption">
-                    <h2 class="shelf-title">Shelf I: Systems &amp; Compilers</h2>
-                    <span class="shelf-num">Four-Volume Collection</span>
+            <div class="floor-directory">
+
+                <!-- Floor Hall Sign -->
+                <div class="floor-hall-sign">
+                    <div class="hall-badge">Floor Wayfinding System</div>
+                    <h2 class="hall-title">The Library Stacks</h2>
+                    <p class="hall-desc">
+                        Follow the directional floor arrows to enter each dedicated library wing. 
+                        Each aisle features parallel dual-sided bookshelves (West &amp; East Stacks) designed for quiet reading and long-term expansion.
+                    </p>
                 </div>
 
-                <div class="shelf-books-row">
-                    
-                    <!-- Slipcase for Tiny Compiler Series -->
-                    <div class="slipcase-box">
-                        <div class="slipcase-header">
-                            <span class="slipcase-title">Tiny Compiler in Java</span>
-                            <span class="slipcase-badge">Four-Volume Slipcase</span>
-                        </div>
+                <!-- Floor Walkways to Aisles -->
+                <div class="floor-walkway">
 
-                        <div class="slipcase-spines">
-                            <!-- Volume 00: Compiler Intro & Architecture -->
-                            <a href="/projects/project_1/project1.html" class="book-spine spine-theme-compiler spine-h-tall" aria-label="Compiler Introduction and Overview">
-                                <div class="spine-head">Intro</div>
-                                <div class="spine-accent-dot"></div>
-                                <div class="spine-title">Compiler Intro</div>
-                                <div class="spine-foot">Folio</div>
-                                <div class="spine-tooltip">
-                                    <div class="tooltip-vol">Volume 0 · Overview</div>
-                                    <div class="tooltip-title">Tiny Compiler in Java</div>
-                                    <div class="tooltip-desc">Series architecture, BASIC dialect grammar scope, translation roadmap, and technical disclosures.</div>
-                                    <div class="tooltip-meta">
-                                        <span>Series Folio</span>
-                                        <span style="color: var(--accent-wine);">Open Folio →</span>
+                    <!-- Aisle 01: Systems & Compilers -->
+                    <a href="/systems.html" class="aisle-directional-card" aria-label="Enter Aisle 1: Systems and Compilers">
+                        <div class="floor-card-layout">
+                            <div class="floor-indicator-left">
+                                <div class="floor-arrow-stencil">──▶</div>
+                                <div>
+                                    <div class="aisle-tag-header">
+                                        <span class="aisle-number-badge">East Wing // Aisle 01</span>
+                                        <span class="aisle-allocation-badge">Four-Volume Slipcase</span>
                                     </div>
+                                    <h3 class="aisle-main-name">Systems &amp; Compilers</h3>
+                                    <p class="aisle-synopsis">
+                                        Building a complete BASIC-dialect compiler in Java targeting native C. 
+                                        Tokenizer, recursive-descent parser, and StringBuilder code emitter.
+                                    </p>
                                 </div>
-                            </a>
-
-                            <!-- Volume 1: Lexer -->
-                            <a href="/projects/project_1/chapter1.html" class="book-spine spine-theme-compiler spine-h-tall" aria-label="Chapter 1: Lex Luther">
-                                <div class="spine-head">Vol. I</div>
-                                <div class="spine-accent-dot"></div>
-                                <div class="spine-title">Lex Luther</div>
-                                <div class="spine-foot">Ch. 1</div>
-                                <div class="spine-tooltip">
-                                    <div class="tooltip-vol">Volume I · Chapter 1</div>
-                                    <div class="tooltip-title">Lex Luther</div>
-                                    <div class="tooltip-desc">Building the tokenizer, TokenType enum in Java, newline heuristics, and lexical scanning.</div>
-                                    <div class="tooltip-meta">
-                                        <span>6 min read</span>
-                                        <span style="color: var(--accent-wine);">Read Volume →</span>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Volume 2: Parser -->
-                            <a href="/projects/project_1/chapter2.html" class="book-spine spine-theme-compiler spine-h-tall" aria-label="Chapter 2: The Pastor">
-                                <div class="spine-head">Vol. II</div>
-                                <div class="spine-accent-dot"></div>
-                                <div class="spine-title">The Pastor</div>
-                                <div class="spine-foot">Ch. 2</div>
-                                <div class="spine-tooltip">
-                                    <div class="tooltip-vol">Volume II · Chapter 2</div>
-                                    <div class="tooltip-title">The Pastor</div>
-                                    <div class="tooltip-desc">Constructing the Parser class first, recursive grammar dispatch, and syntax verification.</div>
-                                    <div class="tooltip-meta">
-                                        <span>8 min read</span>
-                                        <span style="color: var(--accent-wine);">Read Volume →</span>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Volume 3: Emitter -->
-                            <a href="/projects/project_1/chapter3.html" class="book-spine spine-theme-compiler spine-h-tall" aria-label="Chapter 3: Back to Pointy Land">
-                                <div class="spine-head">Vol. III</div>
-                                <div class="spine-accent-dot"></div>
-                                <div class="spine-title">Pointy Land</div>
-                                <div class="spine-foot">Ch. 3</div>
-                                <div class="spine-tooltip">
-                                    <div class="tooltip-vol">Volume III · Chapter 3</div>
-                                    <div class="tooltip-title">Back to Pointy Land</div>
-                                    <div class="tooltip-desc">Building the C emitter using Java's StringBuilder, compiling down to executable native C code.</div>
-                                    <div class="tooltip-meta">
-                                        <span>7 min read</span>
-                                        <span style="color: var(--accent-wine);">Read Volume →</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="shelf-meta-bar">
-                    <span>Translation from Python to Java · Target Emitter: C</span>
-                    <a href="/projects/project_1/project1.html">Explore Series Folio →</a>
-                </div>
-            </div>
-
-            <!-- ------------------------------------------------------
-                 SHELF II: LOGIC & MATHEMATICAL PUZZLES
-                 ------------------------------------------------------ -->
-            <div class="shelf-unit">
-                <div class="shelf-caption">
-                    <h2 class="shelf-title">Shelf II: Puzzles &amp; Discrete Logic</h2>
-                    <span class="shelf-num">Monographs</span>
-                </div>
-
-                <div class="shelf-books-row">
-                    
-                    <!-- Volume 04: Minimal Wardrobe Problem -->
-                    <a href="/problems/Problem_1/problem1.html" class="book-spine spine-theme-logic spine-h-med" aria-label="The Minimal Wardrobe Problem">
-                        <div class="spine-head">Vol. IV</div>
-                        <div class="spine-accent-dot" style="background-color: var(--accent-wine);"></div>
-                        <div class="spine-title">Minimal Wardrobe</div>
-                        <div class="spine-foot">Math</div>
-                        <div class="spine-tooltip">
-                            <div class="tooltip-vol">Volume IV · Monograph</div>
-                            <div class="tooltip-title">The Minimal Wardrobe Problem</div>
-                            <div class="tooltip-desc">How many articles of clothing do you need to avoid repeating an outfit for 365 days? Combinatorics from constraints.</div>
-                            <div class="tooltip-meta">
-                                <span>5 min read</span>
-                                <span style="color: var(--accent-wine);">Read Volume →</span>
                             </div>
+                            <div class="floor-enter-btn">
+                                <span>Enter Stacks</span>
+                                <span>→</span>
+                            </div>
+                        </div>
+                        <div class="floor-path-preview">
+                            <span>West: Tiny Compiler (Vol. 0–III) · East: Bytecode &amp; Runtimes</span>
+                            <span class="floor-dots-line">● ● ●</span>
                         </div>
                     </a>
 
-                    <!-- Reserved Slot for Problem 2 -->
-                    <div class="book-spine spine-theme-reserved spine-h-med" aria-label="Reserved Slot: Problem 02">
-                        <div class="spine-head">Vol. V</div>
-                        <div class="spine-title">Forthcoming</div>
-                        <div class="spine-foot">Draft</div>
-                        <div class="spine-tooltip">
-                            <div class="tooltip-vol">Volume V · In Preparation</div>
-                            <div class="tooltip-title">Problem II: Graph Theory</div>
-                            <div class="tooltip-desc">An inquiry into recursive state machines, graph reachability, and combinatorial constraints.</div>
-                            <div class="tooltip-meta">
-                                <span>Draft in progress</span>
-                                <span>Coming Soon</span>
+                    <!-- Aisle 02: Discrete Logic & Mathematical Puzzles -->
+                    <a href="/logic.html" class="aisle-directional-card" aria-label="Enter Aisle 2: Puzzles and Discrete Logic">
+                        <div class="floor-card-layout">
+                            <div class="floor-indicator-left">
+                                <div class="floor-arrow-stencil">──▶</div>
+                                <div>
+                                    <div class="aisle-tag-header">
+                                        <span class="aisle-number-badge">West Wing // Aisle 02</span>
+                                        <span class="aisle-allocation-badge">Monographs &amp; Inquiries</span>
+                                    </div>
+                                    <h3 class="aisle-main-name">Puzzles &amp; Discrete Logic</h3>
+                                    <p class="aisle-synopsis">
+                                        How many articles of clothing do you need to avoid repeating an outfit for 365 days? 
+                                        Combinatorics from first physical constraints, AM-GM inequalities, and graph models.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="floor-enter-btn">
+                                <span>Enter Stacks</span>
+                                <span>→</span>
                             </div>
                         </div>
-                    </div>
+                        <div class="floor-path-preview">
+                            <span>West: Minimal Wardrobe · East: State Reachability &amp; Graphs</span>
+                            <span class="floor-dots-line">● ● ●</span>
+                        </div>
+                    </a>
 
-                </div>
-
-                <div class="shelf-meta-bar">
-                    <span>Combinatorics, constraint reasoning &amp; formal modeling</span>
-                    <span>Two Allocations Active</span>
-                </div>
-            </div>
-
-            <!-- ------------------------------------------------------
-                 SHELF III: ESSAYS, CINEMA & PHILOSOPHY
-                 ------------------------------------------------------ -->
-            <div class="shelf-unit">
-                <div class="shelf-caption">
-                    <h2 class="shelf-title">Shelf III: Essays, Cinema &amp; Philosophy</h2>
-                    <span class="shelf-num">Essays in Preparation</span>
-                </div>
-
-                <div class="shelf-books-row">
-                    
-                    <!-- Volume 06: Tolstoy & Gibson Essay -->
-                    <div class="book-spine spine-theme-art spine-h-tall" style="cursor: pointer;" onclick="alert('Essay in final editing. Will be published shortly.');">
-                        <div class="spine-head">Vol. VI</div>
-                        <div class="spine-accent-dot" style="background-color: var(--accent-gold);"></div>
-                        <div class="spine-title">Tolstoy &amp; Sprawl</div>
-                        <div class="spine-foot">Essay</div>
-                        <div class="spine-tooltip">
-                            <div class="tooltip-vol">Volume VI · Aesthetic Critique</div>
-                            <div class="tooltip-title">On Tolstoy's Art &amp; Cyberspace</div>
-                            <div class="tooltip-desc">Reconciling Tolstoy's definition of artistic feeling with William Gibson's Count Zero and technological loneliness.</div>
-                            <div class="tooltip-meta">
-                                <span>Draft Stage</span>
-                                <span style="color: var(--accent-gold);">Publishing Soon</span>
+                    <!-- Aisle 03: The Salon (Cinema, Essays & Philosophy) -->
+                    <a href="/salon.html" class="aisle-directional-card" aria-label="Enter Aisle 3: The Salon">
+                        <div class="floor-card-layout">
+                            <div class="floor-indicator-left">
+                                <div class="floor-arrow-stencil">──▶</div>
+                                <div>
+                                    <div class="aisle-tag-header">
+                                        <span class="aisle-number-badge">South Wing // Aisle 03</span>
+                                        <span class="aisle-allocation-badge">Aesthetic Critiques</span>
+                                    </div>
+                                    <h3 class="aisle-main-name">The Salon: Cinema, Essays &amp; Philosophy</h3>
+                                    <p class="aisle-synopsis">
+                                        Tsutomu Nihei's architectural silence in BLAME!, Serial Experiments Lain's 90s cyber-animism, 
+                                        and reconciling Tolstoy's definition of art with William Gibson's technological sprawl.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="floor-enter-btn">
+                                <span>Enter Stacks</span>
+                                <span>→</span>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Volume 07: Lain Essay -->
-                    <div class="book-spine spine-theme-art spine-h-med" style="cursor: pointer;" onclick="alert('Review in final editing. Will be published shortly.');">
-                        <div class="spine-head">Vol. VII</div>
-                        <div class="spine-accent-dot" style="background-color: var(--accent-gold);"></div>
-                        <div class="spine-title">Wired Memory</div>
-                        <div class="spine-foot">Anime</div>
-                        <div class="spine-tooltip">
-                            <div class="tooltip-vol">Volume VII · Retrospective</div>
-                            <div class="tooltip-title">Serial Experiments Lain: The Physical &amp; The Wired</div>
-                            <div class="tooltip-desc">A deep dive into 90s cyber-animism, consciousness, and the phantom borders of memory.</div>
-                            <div class="tooltip-meta">
-                                <span>Draft Stage</span>
-                                <span style="color: var(--accent-gold);">Publishing Soon</span>
-                            </div>
+                        <div class="floor-path-preview">
+                            <span>West: Cinema &amp; Animation · East: Romantic Philosophy &amp; Letters</span>
+                            <span class="floor-dots-line">● ● ●</span>
                         </div>
-                    </div>
-
-                    <!-- Reserved Cinema Review Slot -->
-                    <div class="book-spine spine-theme-reserved spine-h-short">
-                        <div class="spine-head">Vol. VIII</div>
-                        <div class="spine-title">Cinema Framing</div>
-                        <div class="spine-foot">Film</div>
-                        <div class="spine-tooltip">
-                            <div class="tooltip-vol">Volume VIII · Film Critique</div>
-                            <div class="tooltip-title">Composition in Classic Sci-Fi</div>
-                            <div class="tooltip-desc">Atmospheric scale, quiet framing, and romantic geometry in seminal cinema.</div>
-                            <div class="tooltip-meta">
-                                <span>Draft Stage</span>
-                                <span>Queued</span>
-                            </div>
-                        </div>
-                    </div>
+                    </a>
 
                 </div>
 
-                <div class="shelf-meta-bar">
-                    <span>Literature, classical cinema, animation &amp; romantic philosophy</span>
-                    <span>Expanding Library</span>
-                </div>
             </div>
 
         </section>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Aisle I: Systems &amp; Compilers — Rohil's Library</title>
+    <link rel="stylesheet" href="/assets/style.css?v=6">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('rohil_theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+
+<div class="archive-frame">
+
+    <!-- Graceful Header -->
+    <header class="system-header">
+        <a href="/index.html" class="brand">
+            <span class="brand-ornament">✦</span>
+            <span>Rohil's Library</span>
+        </a>
+        <span class="reg-info">Wing East // Stacks 01</span>
+        <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span>Theme:</span> <span id="themeLabel">Light</span>
+        </button>
+    </header>
+
+    <!-- Aisle Banner & Floor Information -->
+    <section class="aisle-banner">
+        <div class="aisle-floor-heading">
+            <div>
+                <div style="font-family: var(--font-mono); font-size: 12px; color: var(--accent-gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">
+                    Floor Sign // East Wing · Aisle 01
+                </div>
+                <h1>Systems &amp; Compilers</h1>
+                <p class="aisle-lead-text">
+                    Lexical scanners, recursive-descent syntax parsers, and code emitters translating high-level 
+                    constructs down to intermediate representations and native execution.
+                </p>
+            </div>
+            <a href="/index.html" style="font-family: var(--font-sans); font-size: 13px; color: var(--text); text-decoration: none; border: 1px solid var(--border); padding: 8px 14px; border-radius: var(--radius); background: var(--surface-alt); display: inline-flex; align-items: center; gap: 6px;">
+                ← Return to Main Hall
+            </a>
+        </div>
+
+        <!-- Central Aisle Floor Wayfinding -->
+        <div class="aisle-central-guide">
+            <span>West Stacks: Compilers</span>
+            <span class="floor-arrow-indicator">◀── [ Central Walkway ] ──▶</span>
+            <span>East Stacks: Runtimes</span>
+        </div>
+    </section>
+
+    <!-- Dual-Sided Aisle Grid (Shelves on Each Side) -->
+    <main class="aisle-stacks-grid">
+
+        <!-- ==========================================================
+             WEST STACKS: TINY COMPILER IN JAVA (Shelf I-A)
+             ========================================================== -->
+        <div class="aisle-bay-left">
+            <div class="stack-wall-label">
+                <span>◀</span> West Stacks · Shelf I-A: Language Implementation
+            </div>
+
+            <div class="shelf-unit">
+                <div class="shelf-caption">
+                    <h2 class="shelf-title">Tiny Compiler in Java</h2>
+                    <span class="shelf-num">Four-Volume Slipcase</span>
+                </div>
+
+                <div class="shelf-books-row">
+                    
+                    <!-- Slipcase for Tiny Compiler Series -->
+                    <div class="slipcase-box">
+                        <div class="slipcase-header">
+                            <span class="slipcase-title">Tiny Compiler Series</span>
+                            <span class="slipcase-badge">Folio Set</span>
+                        </div>
+
+                        <div class="slipcase-spines">
+                            <!-- Volume 00: Compiler Intro & Architecture -->
+                            <a href="/projects/project_1/project1.html" class="book-spine spine-theme-compiler spine-h-tall" aria-label="Compiler Introduction and Overview">
+                                <div class="spine-head">Intro</div>
+                                <div class="spine-accent-dot"></div>
+                                <div class="spine-title">Compiler Intro</div>
+                                <div class="spine-foot">Folio</div>
+                                <div class="spine-tooltip">
+                                    <div class="tooltip-vol">Volume 0 · Overview</div>
+                                    <div class="tooltip-title">Tiny Compiler in Java</div>
+                                    <div class="tooltip-desc">Series architecture, BASIC dialect grammar scope, translation roadmap, and technical disclosures.</div>
+                                    <div class="tooltip-meta">
+                                        <span>Series Folio</span>
+                                        <span style="color: var(--accent-wine);">Open Folio →</span>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Volume 1: Lexer -->
+                            <a href="/projects/project_1/chapter1.html" class="book-spine spine-theme-compiler spine-h-tall" aria-label="Chapter 1: Lex Luther">
+                                <div class="spine-head">Vol. I</div>
+                                <div class="spine-accent-dot"></div>
+                                <div class="spine-title">Lex Luther</div>
+                                <div class="spine-foot">Ch. 1</div>
+                                <div class="spine-tooltip">
+                                    <div class="tooltip-vol">Volume I · Chapter 1</div>
+                                    <div class="tooltip-title">Lex Luther</div>
+                                    <div class="tooltip-desc">Building the tokenizer, TokenType enum in Java, newline heuristics, and lexical scanning.</div>
+                                    <div class="tooltip-meta">
+                                        <span>6 min read</span>
+                                        <span style="color: var(--accent-wine);">Read Volume →</span>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Volume 2: Parser -->
+                            <a href="/projects/project_1/chapter2.html" class="book-spine spine-theme-compiler spine-h-tall" aria-label="Chapter 2: The Pastor">
+                                <div class="spine-head">Vol. II</div>
+                                <div class="spine-accent-dot"></div>
+                                <div class="spine-title">The Pastor</div>
+                                <div class="spine-foot">Ch. 2</div>
+                                <div class="spine-tooltip">
+                                    <div class="tooltip-vol">Volume II · Chapter 2</div>
+                                    <div class="tooltip-title">The Pastor</div>
+                                    <div class="tooltip-desc">Constructing the Parser class first, recursive grammar dispatch, and syntax verification.</div>
+                                    <div class="tooltip-meta">
+                                        <span>8 min read</span>
+                                        <span style="color: var(--accent-wine);">Read Volume →</span>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- Volume 3: Emitter -->
+                            <a href="/projects/project_1/chapter3.html" class="book-spine spine-theme-compiler spine-h-tall" aria-label="Chapter 3: Back to Pointy Land">
+                                <div class="spine-head">Vol. III</div>
+                                <div class="spine-accent-dot"></div>
+                                <div class="spine-title">Pointy Land</div>
+                                <div class="spine-foot">Ch. 3</div>
+                                <div class="spine-tooltip">
+                                    <div class="tooltip-vol">Volume III · Chapter 3</div>
+                                    <div class="tooltip-title">Back to Pointy Land</div>
+                                    <div class="tooltip-desc">Building the C emitter using Java's StringBuilder, compiling down to executable native C code.</div>
+                                    <div class="tooltip-meta">
+                                        <span>7 min read</span>
+                                        <span style="color: var(--accent-wine);">Read Volume →</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="shelf-meta-bar">
+                    <span>Java Source · Emits Native C</span>
+                    <a href="/projects/project_1/project1.html">Series Overview Folio →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================================
+             EAST STACKS: RUNTIMES & VIRTUAL MACHINES (Shelf I-B)
+             ========================================================== -->
+        <div class="aisle-bay-right">
+            <div class="stack-wall-label">
+                <span>▶</span> East Stacks · Shelf I-B: Runtimes &amp; Interpreters
+            </div>
+
+            <div class="shelf-unit">
+                <div class="shelf-caption">
+                    <h2 class="shelf-title">Virtual Machines &amp; Bytecode</h2>
+                    <span class="shelf-num">Upcoming Folios</span>
+                </div>
+
+                <div class="shelf-books-row">
+                    
+                    <!-- Reserved Spine 1 -->
+                    <div class="book-spine spine-theme-reserved spine-h-tall">
+                        <div class="spine-head">Vol. IV</div>
+                        <div class="spine-title">Stack VM</div>
+                        <div class="spine-foot">Draft</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume IV · In Preparation</div>
+                            <div class="tooltip-title">Stack-Based Virtual Machine</div>
+                            <div class="tooltip-desc">Instruction dispatch loop, operand stacks, and bytecode decoding.</div>
+                            <div class="tooltip-meta">
+                                <span>Draft Stage</span>
+                                <span>Queued</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reserved Spine 2 -->
+                    <div class="book-spine spine-theme-reserved spine-h-med">
+                        <div class="spine-head">Vol. V</div>
+                        <div class="spine-title">Lisp Eval</div>
+                        <div class="spine-foot">Draft</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume V · In Preparation</div>
+                            <div class="tooltip-title">Minimal Lisp Environment</div>
+                            <div class="tooltip-desc">Homoiconicity, S-expression reader, and environment scoping.</div>
+                            <div class="tooltip-meta">
+                                <span>Draft Stage</span>
+                                <span>Queued</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="shelf-meta-bar">
+                    <span>Bytecode execution, evaluators &amp; memory models</span>
+                    <span>Expansion Stacks Active</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation Track -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 50px; padding-top: 24px; border-top: 1px solid var(--border); font-family: var(--font-sans); font-size: 13.5px;">
+        <a href="/index.html" style="color: var(--text); text-decoration: none; font-weight: 500;">← Main Hall (Atrium)</a>
+        <a href="/logic.html" style="color: var(--accent-wine); text-decoration: none; font-weight: 500;">Proceed to Aisle II: Discrete Logic →</a>
+    </div>
+
+    <!-- Colophon -->
+    <footer class="colophon-footer">
+        <div>Rohil's Library · East Wing · Aisle 01: Systems &amp; Compilers</div>
+        <div>Typeset in Cormorant Garamond, Newsreader &amp; JetBrains Mono</div>
+    </footer>
+
+</div>
+
+<!-- Theme Switcher Script -->
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function updateThemeUI(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeLabel.textContent = 'Dark';
+            localStorage.setItem('rohil_theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeLabel.textContent = 'Light';
+            localStorage.setItem('rohil_theme', 'light');
+        }
+    }
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeUI(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        updateThemeUI(isDark ? 'light' : 'dark');
+    });
+</script>
+
+</body>
+</html>

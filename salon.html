@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Aisle III: The Salon — Rohil's Library</title>
+    <link rel="stylesheet" href="/assets/style.css?v=6">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('rohil_theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+
+<div class="archive-frame">
+
+    <!-- Graceful Header -->
+    <header class="system-header">
+        <a href="/index.html" class="brand">
+            <span class="brand-ornament">✦</span>
+            <span>Rohil's Library</span>
+        </a>
+        <span class="reg-info">Wing South // Stacks 03</span>
+        <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span>Theme:</span> <span id="themeLabel">Light</span>
+        </button>
+    </header>
+
+    <!-- Aisle Banner & Floor Information -->
+    <section class="aisle-banner">
+        <div class="aisle-floor-heading">
+            <div>
+                <div style="font-family: var(--font-mono); font-size: 12px; color: var(--accent-gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">
+                    Floor Sign // South Wing · Aisle 03
+                </div>
+                <h1>The Salon: Cinema, Essays &amp; Philosophy</h1>
+                <p class="aisle-lead-text">
+                    Critical retrospectives on cinema, 90s cyber-animism, speculative literature, 
+                    architectural graphic works, and the intersection of romantic philosophy with modern craft.
+                </p>
+            </div>
+            <a href="/index.html" style="font-family: var(--font-sans); font-size: 13px; color: var(--text); text-decoration: none; border: 1px solid var(--border); padding: 8px 14px; border-radius: var(--radius); background: var(--surface-alt); display: inline-flex; align-items: center; gap: 6px;">
+                ← Return to Main Hall
+            </a>
+        </div>
+
+        <!-- Central Aisle Floor Wayfinding -->
+        <div class="aisle-central-guide">
+            <span>West Stacks: Cinema &amp; Animation</span>
+            <span class="floor-arrow-indicator">◀── [ Central Walkway ] ──▶</span>
+            <span>East Stacks: Literature &amp; Philosophy</span>
+        </div>
+    </section>
+
+    <!-- Dual-Sided Aisle Grid (Shelves on Each Side) -->
+    <main class="aisle-stacks-grid">
+
+        <!-- ==========================================================
+             WEST STACKS: CINEMA & GRAPHIC ARTS (Shelf III-A)
+             ========================================================== -->
+        <div class="aisle-bay-left">
+            <div class="stack-wall-label">
+                <span>◀</span> West Stacks · Shelf III-A: Cinema &amp; Visual Works
+            </div>
+
+            <div class="shelf-unit">
+                <div class="shelf-caption">
+                    <h2 class="shelf-title">Graphic Works &amp; Screen Arts</h2>
+                    <span class="shelf-num">Essays &amp; Critiques</span>
+                </div>
+
+                <div class="shelf-books-row">
+                    
+                    <!-- Volume 08: Nihei Essay -->
+                    <div class="book-spine spine-theme-art spine-h-tall" style="cursor: pointer;" onclick="alert('Essay in final editing. Will be published shortly.');">
+                        <div class="spine-head">Vol. VIII</div>
+                        <div class="spine-accent-dot" style="background-color: var(--monet-water);"></div>
+                        <div class="spine-title">Nihei Silence</div>
+                        <div class="spine-foot">Manga</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume VIII · Architectural Critique</div>
+                            <div class="tooltip-title">Tsutomu Nihei &amp; The Megastructure</div>
+                            <div class="tooltip-desc">Brutalist vastness, dialogue-free pacing, and scale in BLAME! and early cyber-architecture.</div>
+                            <div class="tooltip-meta">
+                                <span>Draft Stage</span>
+                                <span style="color: var(--accent-gold);">Publishing Soon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Volume 09: Lain Essay -->
+                    <div class="book-spine spine-theme-art spine-h-med" style="cursor: pointer;" onclick="alert('Review in final editing. Will be published shortly.');">
+                        <div class="spine-head">Vol. IX</div>
+                        <div class="spine-accent-dot" style="background-color: var(--accent-gold);"></div>
+                        <div class="spine-title">Wired Memory</div>
+                        <div class="spine-foot">Anime</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume IX · Retrospective</div>
+                            <div class="tooltip-title">Serial Experiments Lain: The Physical &amp; The Wired</div>
+                            <div class="tooltip-desc">A deep dive into 90s cyber-animism, consciousness, and the phantom borders of memory.</div>
+                            <div class="tooltip-meta">
+                                <span>Draft Stage</span>
+                                <span style="color: var(--accent-gold);">Publishing Soon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Volume 10: Cinema Framing -->
+                    <div class="book-spine spine-theme-art spine-h-short" style="cursor: pointer;" onclick="alert('Film review in final editing. Will be published shortly.');">
+                        <div class="spine-head">Vol. X</div>
+                        <div class="spine-accent-dot" style="background-color: var(--monet-sunlight);"></div>
+                        <div class="spine-title">Cinema Framing</div>
+                        <div class="spine-foot">Film</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume X · Film Critique</div>
+                            <div class="tooltip-title">Composition in Classic Sci-Fi</div>
+                            <div class="tooltip-desc">Atmospheric scale, quiet framing, and romantic geometry in seminal cinema.</div>
+                            <div class="tooltip-meta">
+                                <span>Draft Stage</span>
+                                <span>Queued</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="shelf-meta-bar">
+                    <span>Tsutomu Nihei, 90s animism &amp; classic sci-fi staging</span>
+                    <span>3 Volumes in Edit</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================================
+             EAST STACKS: LITERATURE & PHILOSOPHY (Shelf III-B)
+             ========================================================== -->
+        <div class="aisle-bay-right">
+            <div class="stack-wall-label">
+                <span>▶</span> East Stacks · Shelf III-B: Literature &amp; Philosophy
+            </div>
+
+            <div class="shelf-unit">
+                <div class="shelf-caption">
+                    <h2 class="shelf-title">Romantic Philosophy &amp; Letters</h2>
+                    <span class="shelf-num">Essays in Preparation</span>
+                </div>
+
+                <div class="shelf-books-row">
+                    
+                    <!-- Volume 11: Tolstoy & Gibson Essay -->
+                    <div class="book-spine spine-theme-compiler spine-h-tall" style="cursor: pointer;" onclick="alert('Essay in final editing. Will be published shortly.');">
+                        <div class="spine-head">Vol. XI</div>
+                        <div class="spine-accent-dot" style="background-color: var(--accent-gold);"></div>
+                        <div class="spine-title">Tolstoy &amp; Sprawl</div>
+                        <div class="spine-foot">Essay</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume XI · Aesthetic Critique</div>
+                            <div class="tooltip-title">On Tolstoy's Art &amp; Cyberspace</div>
+                            <div class="tooltip-desc">Reconciling Tolstoy's definition of artistic feeling with William Gibson's Count Zero and technological loneliness.</div>
+                            <div class="tooltip-meta">
+                                <span>Draft Stage</span>
+                                <span style="color: var(--accent-gold);">Publishing Soon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Volume 12: Nietzsche & Friedrich -->
+                    <div class="book-spine spine-theme-compiler spine-h-med" style="cursor: pointer;" onclick="alert('Monograph in preparation. Will be published shortly.');">
+                        <div class="spine-head">Vol. XII</div>
+                        <div class="spine-accent-dot" style="background-color: var(--monet-water);"></div>
+                        <div class="spine-title">Sea of Fog</div>
+                        <div class="spine-foot">Critique</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume XII · Romantic Thought</div>
+                            <div class="tooltip-title">Friedrich's Fog &amp; Zarathustra's Peak</div>
+                            <div class="tooltip-desc">Sublime isolation and the quiet dignity of the solitary observer.</div>
+                            <div class="tooltip-meta">
+                                <span>Draft Stage</span>
+                                <span>Queued</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Volume 13: Monet & Escher -->
+                    <div class="book-spine spine-theme-reserved spine-h-short">
+                        <div class="spine-head">Vol. XIII</div>
+                        <div class="spine-title">Monet Light</div>
+                        <div class="spine-foot">Draft</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume XIII · Visual Geometry</div>
+                            <div class="tooltip-title">Impressionist Color &amp; Tessellation</div>
+                            <div class="tooltip-desc">Monet's atmospheric wash meets Escher's mathematically recursive woodwork.</div>
+                            <div class="tooltip-meta">
+                                <span>Draft Stage</span>
+                                <span>Queued</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="shelf-meta-bar">
+                    <span>Tolstoy, Gibson, Nietzsche, Friedrich &amp; Monet</span>
+                    <span>3 Volumes in Edit</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation Track -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 50px; padding-top: 24px; border-top: 1px solid var(--border); font-family: var(--font-sans); font-size: 13.5px;">
+        <a href="/logic.html" style="color: var(--text); text-decoration: none; font-weight: 500;">← Aisle II: Puzzles &amp; Discrete Logic</a>
+        <a href="/systems.html" style="color: var(--accent-wine); text-decoration: none; font-weight: 500;">Return to Aisle I: Systems →</a>
+    </div>
+
+    <!-- Colophon -->
+    <footer class="colophon-footer">
+        <div>Rohil's Library · South Wing · Aisle 03: The Salon</div>
+        <div>Typeset in Cormorant Garamond, Newsreader &amp; JetBrains Mono</div>
+    </footer>
+
+</div>
+
+<!-- Theme Switcher Script -->
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function updateThemeUI(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeLabel.textContent = 'Dark';
+            localStorage.setItem('rohil_theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeLabel.textContent = 'Light';
+            localStorage.setItem('rohil_theme', 'light');
+        }
+    }
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeUI(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        updateThemeUI(isDark ? 'light' : 'dark');
+    });
+</script>
+
+</body>
+</html>

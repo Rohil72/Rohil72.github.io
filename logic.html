@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Aisle II: Puzzles &amp; Discrete Logic — Rohil's Library</title>
+    <link rel="stylesheet" href="/assets/style.css?v=6">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('rohil_theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+
+<div class="archive-frame">
+
+    <!-- Graceful Header -->
+    <header class="system-header">
+        <a href="/index.html" class="brand">
+            <span class="brand-ornament">✦</span>
+            <span>Rohil's Library</span>
+        </a>
+        <span class="reg-info">Wing West // Stacks 02</span>
+        <button class="theme-toggle-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span>Theme:</span> <span id="themeLabel">Light</span>
+        </button>
+    </header>
+
+    <!-- Aisle Banner & Floor Information -->
+    <section class="aisle-banner">
+        <div class="aisle-floor-heading">
+            <div>
+                <div style="font-family: var(--font-mono); font-size: 12px; color: var(--accent-gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;">
+                    Floor Sign // West Wing · Aisle 02
+                </div>
+                <h1>Puzzles &amp; Discrete Logic</h1>
+                <p class="aisle-lead-text">
+                    Combinatorics, Cartesian products across partitions, constraint satisfaction, and graph reachability 
+                    investigated from first physical principles.
+                </p>
+            </div>
+            <a href="/index.html" style="font-family: var(--font-sans); font-size: 13px; color: var(--text); text-decoration: none; border: 1px solid var(--border); padding: 8px 14px; border-radius: var(--radius); background: var(--surface-alt); display: inline-flex; align-items: center; gap: 6px;">
+                ← Return to Main Hall
+            </a>
+        </div>
+
+        <!-- Central Aisle Floor Wayfinding -->
+        <div class="aisle-central-guide">
+            <span>West Stacks: Combinatorics</span>
+            <span class="floor-arrow-indicator">◀── [ Central Walkway ] ──▶</span>
+            <span>East Stacks: Automata</span>
+        </div>
+    </section>
+
+    <!-- Dual-Sided Aisle Grid (Shelves on Each Side) -->
+    <main class="aisle-stacks-grid">
+
+        <!-- ==========================================================
+             WEST STACKS: COMBINATORICS & CONSTRAINTS (Shelf II-A)
+             ========================================================== -->
+        <div class="aisle-bay-left">
+            <div class="stack-wall-label">
+                <span>◀</span> West Stacks · Shelf II-A: Combinatorial Systems
+            </div>
+
+            <div class="shelf-unit">
+                <div class="shelf-caption">
+                    <h2 class="shelf-title">The Minimal Wardrobe Problem</h2>
+                    <span class="shelf-num">Monograph</span>
+                </div>
+
+                <div class="shelf-books-row">
+                    
+                    <!-- Volume 04: Minimal Wardrobe Problem -->
+                    <a href="/problems/Problem_1/problem1.html" class="book-spine spine-theme-logic spine-h-med" aria-label="The Minimal Wardrobe Problem">
+                        <div class="spine-head">Vol. IV</div>
+                        <div class="spine-accent-dot" style="background-color: var(--accent-wine);"></div>
+                        <div class="spine-title">Minimal Wardrobe</div>
+                        <div class="spine-foot">Math</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume IV · Monograph</div>
+                            <div class="tooltip-title">The Minimal Wardrobe Problem</div>
+                            <div class="tooltip-desc">How many articles of clothing do you need to avoid repeating an outfit for 365 days? Combinatorics from constraints.</div>
+                            <div class="tooltip-meta">
+                                <span>5 min read</span>
+                                <span style="color: var(--accent-wine);">Read Volume →</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Draft Slot: Partition Optimization -->
+                    <div class="book-spine spine-theme-reserved spine-h-med" aria-label="Reserved Slot: Partition Modeling">
+                        <div class="spine-head">Vol. V</div>
+                        <div class="spine-title">AM-GM Bound</div>
+                        <div class="spine-foot">Draft</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume V · In Preparation</div>
+                            <div class="tooltip-title">Geometric Means in Partitions</div>
+                            <div class="tooltip-desc">Exploring product maximization under fixed sum bounds across multidimensional constraints.</div>
+                            <div class="tooltip-meta">
+                                <span>Draft in progress</span>
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="shelf-meta-bar">
+                    <span>Partitions, independent selections &amp; bounds</span>
+                    <a href="/problems/Problem_1/problem1.html">Read Problem I Monograph →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================================
+             EAST STACKS: GRAPH THEORY & AUTOMATA (Shelf II-B)
+             ========================================================== -->
+        <div class="aisle-bay-right">
+            <div class="stack-wall-label">
+                <span>▶</span> East Stacks · Shelf II-B: Graphs &amp; Finite Automata
+            </div>
+
+            <div class="shelf-unit">
+                <div class="shelf-caption">
+                    <h2 class="shelf-title">State Automata &amp; Reachability</h2>
+                    <span class="shelf-num">Upcoming Folios</span>
+                </div>
+
+                <div class="shelf-books-row">
+                    
+                    <!-- Reserved Spine: Problem 2 -->
+                    <div class="book-spine spine-theme-reserved spine-h-tall" aria-label="Reserved Slot: Problem 02">
+                        <div class="spine-head">Vol. VI</div>
+                        <div class="spine-title">Graph Reach</div>
+                        <div class="spine-foot">Draft</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume VI · In Preparation</div>
+                            <div class="tooltip-title">Problem II: Graph Reachability</div>
+                            <div class="tooltip-desc">An inquiry into recursive state machines, graph reachability, and combinatorial constraints.</div>
+                            <div class="tooltip-meta">
+                                <span>Draft in progress</span>
+                                <span>Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reserved Spine: SAT -->
+                    <div class="book-spine spine-theme-reserved spine-h-med">
+                        <div class="spine-head">Vol. VII</div>
+                        <div class="spine-title">SAT Solvers</div>
+                        <div class="spine-foot">Draft</div>
+                        <div class="spine-tooltip">
+                            <div class="tooltip-vol">Volume VII · In Preparation</div>
+                            <div class="tooltip-title">Boolean Clause Resolution</div>
+                            <div class="tooltip-desc">Unit propagation, DPLL backtrack heuristics, and clause learning.</div>
+                            <div class="tooltip-meta">
+                                <span>Draft Stage</span>
+                                <span>Queued</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="shelf-meta-bar">
+                    <span>Directed graphs, transition tables &amp; constraint solvers</span>
+                    <span>Expansion Stacks Active</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation Track -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 50px; padding-top: 24px; border-top: 1px solid var(--border); font-family: var(--font-sans); font-size: 13.5px;">
+        <a href="/systems.html" style="color: var(--text); text-decoration: none; font-weight: 500;">← Aisle I: Systems &amp; Compilers</a>
+        <a href="/salon.html" style="color: var(--accent-wine); text-decoration: none; font-weight: 500;">Proceed to Aisle III: The Salon →</a>
+    </div>
+
+    <!-- Colophon -->
+    <footer class="colophon-footer">
+        <div>Rohil's Library · West Wing · Aisle 02: Puzzles &amp; Discrete Logic</div>
+        <div>Typeset in Cormorant Garamond, Newsreader &amp; JetBrains Mono</div>
+    </footer>
+
+</div>
+
+<!-- Theme Switcher Script -->
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function updateThemeUI(theme) {
+        if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeLabel.textContent = 'Dark';
+            localStorage.setItem('rohil_theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeLabel.textContent = 'Light';
+            localStorage.setItem('rohil_theme', 'light');
+        }
+    }
+
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    updateThemeUI(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        updateThemeUI(isDark ? 'light' : 'dark');
+    });
+</script>
+
+</body>
+</html>

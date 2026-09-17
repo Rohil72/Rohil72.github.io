@@ -845,10 +845,295 @@ body {
   }
 }
 
-/* Mobile & Tablet Responsiveness — Bookshelves ALWAYS stay horizontal */
+/* ==========================================================================
+   FLOOR WAYFINDING & LIBRARY STACKS DIRECTORY
+   Tactile architectural floor arrows and aisle stencils (Bauhaus & Dieter Rams)
+   ========================================================================== */
+.floor-directory {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+.floor-hall-sign {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 22px 24px;
+  box-shadow: var(--shadow-flat);
+  border-radius: var(--radius);
+}
+
+.floor-hall-sign .hall-badge {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.floor-hall-sign .hall-badge::before {
+  content: "✦";
+  font-size: 10px;
+}
+
+.floor-hall-sign .hall-title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.floor-hall-sign .hall-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Floor Walkway Track & Directional Arrows */
+.floor-walkway {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.aisle-directional-card {
+  display: block;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-flat);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.aisle-directional-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-shelf);
+  border-color: var(--monet-water);
+}
+
+.aisle-directional-card:active {
+  transform: translateY(-1px);
+}
+
+.floor-card-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.floor-indicator-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.floor-arrow-stencil {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: var(--monet-water);
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.aisle-directional-card:hover .floor-arrow-stencil {
+  background: var(--monet-water);
+  color: #FCFAFD;
+  border-color: var(--monet-water);
+  transform: translateX(4px);
+}
+
+.aisle-tag-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.aisle-number-badge {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.aisle-allocation-badge {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.aisle-main-name {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.aisle-synopsis {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.floor-path-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text);
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+}
+
+.floor-dots-line {
+  color: var(--accent-gold);
+}
+
+.floor-enter-btn {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent-wine);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ==========================================================================
+   AISLE ARCHITECTURE: DUAL-SIDED BOOKSHELVES
+   West Stacks & East Stacks flanking the central floor walkway
+   ========================================================================== */
+.aisle-banner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-flat);
+  margin-bottom: 26px;
+}
+
+.aisle-floor-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.aisle-floor-heading h1 {
+  font-family: var(--font-display);
+  font-size: 2.3rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.aisle-lead-text {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 8px;
+  max-width: 820px;
+}
+
+.aisle-central-guide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 0;
+  margin: 18px 0 24px 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.floor-arrow-indicator {
+  color: var(--monet-water);
+  font-weight: bold;
+}
+
+.aisle-stacks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .aisle-stacks-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+}
+
+.stack-wall-label {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--monet-garden);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   MOBILE & TOUCHSCREEN ERGONOMICS (PHONE-FRIENDLY SYSTEM)
+   ========================================================================== */
+/* Touch devices: eliminate sticky hover tooltip popup bugs */
+@media (hover: none) {
+  .book-spine .spine-tooltip {
+    display: none !important;
+  }
+  
+  .book-spine:active {
+    transform: translateY(-6px);
+    border-top-color: var(--monet-water);
+  }
+}
+
 @media (max-width: 768px) {
   .archive-frame {
-    padding: 16px 14px 50px 14px;
+    padding: 16px max(14px, env(safe-area-inset-right)) 50px max(14px, env(safe-area-inset-left));
   }
 
   .shelf-unit {
@@ -858,28 +1143,115 @@ body {
   .shelf-books-row {
     flex-wrap: nowrap;
     overflow-x: auto;
+    overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    padding-bottom: 10px;
+    scrollbar-width: none;
+    padding-bottom: 12px;
+    scroll-snap-type: x proximity;
   }
 
-  .slipcase-box {
-    flex-shrink: 0;
+  .shelf-books-row::-webkit-scrollbar {
+    display: none;
   }
 
-  .slipcase-spines {
-    flex-shrink: 0;
+  .slipcase-header {
+    flex-wrap: wrap;
+    gap: 6px;
+    white-space: normal;
+    font-size: 12.5px;
   }
 
+  .slipcase-box,
+  .slipcase-spines,
   .book-spine {
     flex-shrink: 0;
+    scroll-snap-align: start;
   }
 
   .study-name {
-    font-size: 1.9rem;
+    font-size: 1.95rem;
   }
   
   .article-title {
     font-size: 2rem;
+  }
+
+  .article-content {
+    font-size: 17px;
+    line-height: 1.68;
+  }
+
+  .chapter-nav-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .chapter-nav-btn {
+    justify-content: center;
+    padding: 12px 16px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+}
+
+@media (max-width: 480px) {
+  .system-header {
+    padding: 10px 12px;
+    margin-bottom: 20px;
+  }
+
+  .system-header .brand {
+    font-size: 1.15rem;
+    gap: 6px;
+  }
+
+  .theme-toggle-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .floor-hall-sign {
+    padding: 16px 14px;
+  }
+
+  .floor-hall-sign .hall-title {
+    font-size: 1.55rem;
+  }
+
+  .aisle-directional-card {
+    padding: 16px 14px;
+  }
+
+  .floor-card-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .floor-indicator-left {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .floor-arrow-stencil {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  .aisle-main-name {
+    font-size: 1.25rem;
+  }
+
+  .aisle-banner {
+    padding: 16px 14px;
+  }
+
+  .aisle-floor-heading h1 {
+    font-size: 1.7rem;
   }
 }
