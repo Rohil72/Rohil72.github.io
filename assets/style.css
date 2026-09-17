@@ -840,50 +840,41 @@ body {
   }
 }
 
-/* Mobile Responsiveness */
+/* Mobile & Tablet Responsiveness — Bookshelves ALWAYS stay horizontal */
 @media (max-width: 768px) {
-  .shelf-books-row {
-    flex-wrap: wrap;
-    align-items: stretch;
-    border-bottom: none;
-    gap: 10px;
+  .archive-frame {
+    padding: 16px 14px 50px 14px;
   }
-  
+
+  .shelf-unit {
+    padding: 18px 14px 0px 14px;
+  }
+
+  .shelf-books-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 10px;
+  }
+
   .slipcase-box {
-    width: 100%;
-    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
   }
 
   .slipcase-spines {
-    flex-direction: column;
-    padding: 10px;
-    gap: 8px;
+    flex-shrink: 0;
   }
 
   .book-spine {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    padding: 12px 16px;
-    transform: none !important;
-    border-radius: var(--radius);
-  }
-
-  .spine-title {
-    writing-mode: horizontal-tb;
-    transform: none;
-    margin: 0;
-  }
-
-  .book-spine .spine-tooltip {
-    display: none;
+    flex-shrink: 0;
   }
 
   .study-name {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
   
   .article-title {
-    font-size: 2.1rem;
+    font-size: 2rem;
   }
 }
